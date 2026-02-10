@@ -25,7 +25,7 @@
                             200: '#ceddce',
                             300: '#a6c0a6',
                             400: '#7fa27f',
-                            500: '#5f845f', // Forest Sage Base
+                            500: '#5f845f', 
                             600: '#4a694a',
                             700: '#3d543d',
                             800: '#334433',
@@ -74,7 +74,6 @@
             width: 300%;
             height: 300%;
         }
-        /* Custom Hero Background */
         .hero-bg {
             background: linear-gradient(to bottom, rgba(43, 56, 43, 0.8), rgba(43, 56, 43, 0.6)), 
                         url('https://lh3.googleusercontent.com/d/1TAiHusAEYpKNqdtzZhmTlCztE4iwRK_n=w1600');
@@ -145,8 +144,6 @@
                 </a>
             </div>
         </div>
-        
-        <!-- Overlay for better text readability -->
         <div class="absolute inset-0 bg-black/30 pointer-events-none"></div>
     </header>
 
@@ -234,7 +231,6 @@
             </div>
 
             <div class="space-y-8 max-w-2xl mx-auto mb-16">
-                <!-- Timeline Items -->
                 <div class="timeline-item" data-aos="fade-up">
                     <span class="text-xs font-bold text-sage-400 uppercase tracking-widest">19 - 20 April 2026</span>
                     <p class="text-sage-700 font-medium mt-1">Masuk Bursa</p>
@@ -277,7 +273,6 @@
                 </div>
             </div>
 
-            <!-- Force Majeure Insert -->
             <div class="p-8 rounded-3xl bg-sage-50 border border-sage-200 text-center relative" data-aos="zoom-in">
                 <div class="absolute -top-4 left-1/2 -translate-x-1/2 px-4 py-1 bg-sage-600 text-white text-[10px] uppercase font-bold rounded-full tracking-widest">
                     Pemberitahuan
@@ -289,7 +284,7 @@
         </div>
     </section>
 
-    <!-- Informasi Pendaftaran (Harga) -->
+    <!-- Biaya Pendaftaran -->
     <section class="py-24 bg-sage-100/50">
         <div class="max-w-6xl mx-auto px-4">
             <div class="text-center mb-16" data-aos="fade-up">
@@ -304,7 +299,6 @@
                 </div>
             </div>
 
-            <!-- Grid Kelas -->
             <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
                 <div class="bg-white p-6 rounded-3xl shadow-sm price-card border border-sage-200" data-aos="fade-up">
                     <h5 class="text-sage-800 font-bold border-b border-sage-100 pb-4 mb-4 uppercase tracking-widest text-xs">Kelas Prospek</h5>
@@ -347,7 +341,6 @@
                 </div>
             </div>
 
-            <!-- Contact Person -->
             <div class="mt-20 grid md:grid-cols-2 gap-8 max-w-2xl mx-auto">
                 <a href="https://wa.me/6285724250573" target="_blank" class="bg-white p-6 rounded-2xl flex items-center gap-4 shadow-md border-l-4 border-sage-600 hover:shadow-lg transition-all group">
                     <div class="w-12 h-12 bg-sage-50 rounded-full flex items-center justify-center text-sage-600 group-hover:bg-sage-600 group-hover:text-white transition-colors">
@@ -360,21 +353,21 @@
                     </div>
                 </a>
 
-                <a href="https://wa.me/6282119508505" target="_blank" class="bg-white p-6 rounded-2xl flex items-center gap-4 shadow-md border-l-4 border-sage-600 hover:shadow-lg transition-all group">
+                <a href="https://wa.me/6282119408505" target="_blank" class="bg-white p-6 rounded-2xl flex items-center gap-4 shadow-md border-l-4 border-sage-600 hover:shadow-lg transition-all group">
                     <div class="w-12 h-12 bg-sage-50 rounded-full flex items-center justify-center text-sage-600 group-hover:bg-sage-600 group-hover:text-white transition-colors">
                         <i class="fab fa-whatsapp text-xl"></i>
                     </div>
                     <div>
                         <p class="text-[10px] uppercase font-bold text-sage-400 tracking-wider">Kontak Bursa</p>
                         <h6 class="font-bold text-sage-800">Ace</h6>
-                        <span class="text-sage-600 text-sm font-medium">0821 1950 8505</span>
+                        <span class="text-sage-600 text-sm font-medium">0821 1940 8505</span>
                     </div>
                 </a>
             </div>
         </div>
     </section>
 
-    <!-- Trophy Penghargaan Section -->
+    <!-- Trophy & Penghargaan -->
     <section class="py-24 bg-white relative overflow-hidden">
         <div class="max-w-6xl mx-auto px-4 relative z-10">
             <div class="text-center mb-16" data-aos="fade-up">
@@ -425,7 +418,7 @@
         </div>
     </section>
 
-    <!-- Door Prize Section -->
+    <!-- Door Prize -->
     <section class="py-24 bg-sage-900 text-white relative overflow-hidden">
         <div class="max-w-6xl mx-auto px-4 relative z-10">
             <div class="text-center mb-16" data-aos="fade-up">
@@ -461,7 +454,6 @@
                     </p>
                 </div>
             </div>
-
             <div class="mt-12 text-center" data-aos="fade-up">
                 <p class="text-gold italic font-serif text-lg tracking-wider">"Dan berbagai hadiah menarik lainnya..."</p>
             </div>
@@ -479,25 +471,23 @@
                 </div>
 
                 <form id="registration-form" class="space-y-5">
-                    <!-- Nama -->
-                    <div class="space-y-2">
-                        <label class="text-[10px] font-black text-sage-700 uppercase tracking-[0.2em] ml-1">Nama Lengkap</label>
-                        <input type="text" id="reg-name" required class="w-full px-5 py-3 bg-sage-50 border border-sage-100 rounded-xl focus:ring-2 focus:ring-sage-400 outline-none transition-all placeholder:text-sage-300" placeholder="Nama Anda">
-                    </div>
-
-                    <!-- Cabang PPBI -->
-                    <div class="space-y-2">
-                        <label class="text-[10px] font-black text-sage-700 uppercase tracking-[0.2em] ml-1">Cabang PPBI</label>
-                        <input type="text" id="reg-branch" required class="w-full px-5 py-3 bg-sage-50 border border-sage-100 rounded-xl focus:ring-2 focus:ring-sage-400 outline-none transition-all placeholder:text-sage-300" placeholder="Contoh: PPBI Cabang Tasikmalaya">
+                    <!-- Nama & Cabang -->
+                    <div class="grid md:grid-cols-2 gap-5">
+                        <div class="space-y-2">
+                            <label class="text-[10px] font-black text-sage-700 uppercase tracking-[0.2em] ml-1">Nama Lengkap</label>
+                            <input type="text" id="reg-name" required class="w-full px-5 py-3 bg-sage-50 border border-sage-100 rounded-xl focus:ring-2 focus:ring-sage-400 outline-none transition-all placeholder:text-sage-300" placeholder="Nama Anda">
+                        </div>
+                        <div class="space-y-2">
+                            <label class="text-[10px] font-black text-sage-700 uppercase tracking-[0.2em] ml-1">Cabang PPBI</label>
+                            <input type="text" id="reg-branch" required class="w-full px-5 py-3 bg-sage-50 border border-sage-100 rounded-xl focus:ring-2 focus:ring-sage-400 outline-none transition-all placeholder:text-sage-300" placeholder="Cabang PPBI">
+                        </div>
                     </div>
                     
                     <div class="grid md:grid-cols-2 gap-5">
-                        <!-- WhatsApp -->
                         <div class="space-y-2">
                             <label class="text-[10px] font-black text-sage-700 uppercase tracking-[0.2em] ml-1">WhatsApp</label>
                             <input type="tel" id="reg-wa" required class="w-full px-5 py-3 bg-sage-50 border border-sage-100 rounded-xl focus:ring-2 focus:ring-sage-400 outline-none transition-all placeholder:text-sage-300" placeholder="08xxx">
                         </div>
-                        <!-- Kategori -->
                         <div class="space-y-2">
                             <label class="text-[10px] font-black text-sage-700 uppercase tracking-[0.2em] ml-1">Kategori</label>
                             <select id="reg-category" required class="w-full px-5 py-3 bg-sage-50 border border-sage-100 rounded-xl focus:ring-2 focus:ring-sage-400 outline-none transition-all appearance-none cursor-pointer">
@@ -507,14 +497,53 @@
                         </div>
                     </div>
 
-                    <!-- Jumlah Bonsai (Muncul hanya jika Peserta) -->
-                    <div id="bonsai-count-wrapper" class="space-y-2 transition-all duration-300">
-                        <label class="text-[10px] font-black text-sage-700 uppercase tracking-[0.2em] ml-1">Jumlah Bonsai</label>
-                        <input type="number" id="reg-count" min="1" value="1" class="w-full px-5 py-3 bg-sage-50 border border-sage-100 rounded-xl focus:ring-2 focus:ring-sage-400 outline-none transition-all">
+                    <!-- Detail Pohon (Conditional for Peserta) -->
+                    <div id="bonsai-details" class="space-y-5 border-t border-sage-100 pt-5">
+                        <div class="space-y-2">
+                            <label class="text-[10px] font-black text-sage-700 uppercase tracking-[0.2em] ml-1">Nama Pohon / Jenis</label>
+                            <input type="text" id="reg-tree-name" class="w-full px-5 py-3 bg-sage-50 border border-sage-100 rounded-xl focus:ring-2 focus:ring-sage-400 outline-none transition-all placeholder:text-sage-300" placeholder="Contoh: Anting Putri">
+                        </div>
+
+                        <div class="grid md:grid-cols-2 gap-5">
+                            <div class="space-y-2">
+                                <label class="text-[10px] font-black text-sage-700 uppercase tracking-[0.2em] ml-1">Kelas</label>
+                                <select id="reg-class" class="w-full px-5 py-3 bg-sage-50 border border-sage-100 rounded-xl focus:ring-2 focus:ring-sage-400 outline-none transition-all cursor-pointer">
+                                    <option value="Prospek">Prospek</option>
+                                    <option value="Pratama">Pratama</option>
+                                    <option value="Madya">Madya</option>
+                                    <option value="Utama">Utama</option>
+                                </select>
+                            </div>
+                            <div class="space-y-2">
+                                <label class="text-[10px] font-black text-sage-700 uppercase tracking-[0.2em] ml-1">Ukuran</label>
+                                <select id="reg-size" class="w-full px-5 py-3 bg-sage-50 border border-sage-100 rounded-xl focus:ring-2 focus:ring-sage-400 outline-none transition-all cursor-pointer">
+                                    <option value="Small / Mame">Small / Mame</option>
+                                    <option value="Medium">Medium</option>
+                                    <option value="Large">Large</option>
+                                    <option value="Extra Large">Extra Large</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="space-y-2">
+                            <label class="text-[10px] font-black text-sage-700 uppercase tracking-[0.2em] ml-1">Jumlah Pohon</label>
+                            <input type="number" id="reg-count" min="1" value="1" class="w-full px-5 py-3 bg-sage-50 border border-sage-100 rounded-xl focus:ring-2 focus:ring-sage-400 outline-none transition-all">
+                        </div>
+
+                        <!-- Upload Foto -->
+                        <div class="space-y-2">
+                            <label class="text-[10px] font-black text-sage-700 uppercase tracking-[0.2em] ml-1">Foto Pohon (Opsional)</label>
+                            <div class="relative w-full h-32 border-2 border-dashed border-sage-200 rounded-2xl flex flex-col items-center justify-center hover:border-sage-400 transition-colors bg-sage-50/50">
+                                <i class="fas fa-camera text-sage-300 text-2xl mb-2"></i>
+                                <span class="text-[10px] text-sage-400 uppercase font-bold tracking-widest">Pilih Foto</span>
+                                <input type="file" id="reg-photo" accept="image/*" class="absolute inset-0 opacity-0 cursor-pointer">
+                                <div id="file-name-display" class="absolute bottom-2 text-[9px] text-sage-600 font-medium"></div>
+                            </div>
+                        </div>
                     </div>
 
                     <button type="submit" class="w-full py-4 bg-sage-800 hover:bg-sage-900 text-white rounded-xl font-bold uppercase tracking-[0.3em] text-[10px] transition-all duration-300 shadow-xl shadow-sage-900/10 active:scale-95">
-                        Daftar Sekarang
+                        Kirim Pendaftaran
                     </button>
                 </form>
                 
@@ -542,26 +571,10 @@
     </footer>
 
     <script>
-        AOS.init({
-            duration: 1000,
-            once: true,
-            easing: 'ease-out-back'
-        });
+        AOS.init({ duration: 1000, once: true, easing: 'ease-out-back' });
 
-        // Logika Toggle Jumlah Bonsai
-        const categorySelect = document.getElementById('reg-category');
-        const bonsaiWrapper = document.getElementById('bonsai-count-wrapper');
-
-        categorySelect.addEventListener('change', function() {
-            if (this.value === 'peserta') {
-                bonsaiWrapper.classList.remove('hidden');
-            } else {
-                bonsaiWrapper.classList.add('hidden');
-            }
-        });
-
+        // Countdown Logic
         const targetDate = new Date("April 19, 2026 00:00:00").getTime();
-
         function updateCountdown() {
             const now = new Date().getTime();
             const distance = targetDate - now;
@@ -573,30 +586,40 @@
             const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
             const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
             const seconds = Math.floor((distance % (1000 * 60)) / 1000);
-
             document.getElementById("days").innerText = days.toString().padStart(2, '0');
             document.getElementById("hours").innerText = hours.toString().padStart(2, '0');
             document.getElementById("minutes").innerText = minutes.toString().padStart(2, '0');
             document.getElementById("seconds").innerText = seconds.toString().padStart(2, '0');
         }
-
         setInterval(updateCountdown, 1000);
         updateCountdown();
 
+        // Music Logic
         const audio = document.getElementById('bg-music');
         const musicIcon = document.getElementById('music-icon');
         let isPlaying = false;
-
         function toggleMusic() {
-            if (isPlaying) {
-                audio.pause();
-                musicIcon.classList.replace('fa-pause', 'fa-music');
-            } else {
-                audio.play();
-                musicIcon.classList.replace('fa-music', 'fa-pause');
-            }
+            if (isPlaying) { audio.pause(); musicIcon.classList.replace('fa-pause', 'fa-music'); }
+            else { audio.play(); musicIcon.classList.replace('fa-music', 'fa-pause'); }
             isPlaying = !isPlaying;
         }
+
+        // Form Logic
+        const categorySelect = document.getElementById('reg-category');
+        const bonsaiDetails = document.getElementById('bonsai-details');
+        const photoInput = document.getElementById('reg-photo');
+        const fileNameDisplay = document.getElementById('file-name-display');
+
+        categorySelect.addEventListener('change', function() {
+            if (this.value === 'peserta') { bonsaiDetails.classList.remove('hidden'); } 
+            else { bonsaiDetails.classList.add('hidden'); }
+        });
+
+        photoInput.addEventListener('change', function() {
+            if(this.files && this.files.length > 0) {
+                fileNameDisplay.innerText = "Terpilih: " + this.files[0].name;
+            }
+        });
 
         const regForm = document.getElementById('registration-form');
         const regSuccess = document.getElementById('reg-success');
@@ -608,19 +631,31 @@
             const branch = document.getElementById('reg-branch').value;
             const wa = document.getElementById('reg-wa').value;
             const cat = document.getElementById('reg-category').value;
-            const count = document.getElementById('reg-count').value;
-
-            // Updated Admin Number for Redi Kurnia: 085724250573
-            let targetNumber = (cat === 'peserta') ? "6285724250573" : "6282119508505";
             
             let message = `Halo Admin, saya ingin mendaftar Pameran Bonsai Nasional 2026:\n\n` +
-                          `Nama: ${name}\n` +
-                          `Cabang: ${branch}\n` +
-                          `WhatsApp: ${wa}\n` +
-                          `Kategori: ${cat.toUpperCase()}`;
+                          `👤 Nama: ${name}\n` +
+                          `🏢 Cabang: ${branch}\n` +
+                          `📱 WhatsApp: ${wa}\n` +
+                          `🏷️ Kategori: ${cat.toUpperCase()}`;
             
-            if(cat === 'peserta') message += `\nJumlah Bonsai: ${count}`;
+            if(cat === 'peserta') {
+                const treeName = document.getElementById('reg-tree-name').value;
+                const treeClass = document.getElementById('reg-class').value;
+                const treeSize = document.getElementById('reg-size').value;
+                const count = document.getElementById('reg-count').value;
+                
+                message += `\n🌳 Nama Pohon: ${treeName || '-'}\n` +
+                           `🏆 Kelas: ${treeClass}\n` +
+                           `📏 Ukuran: ${treeSize}\n` +
+                           `🔢 Jumlah: ${count}`;
+                
+                if(photoInput.files.length > 0) {
+                    message += `\n📸 *Keterangan: Foto pohon akan dilampirkan secara manual di chat ini.*`;
+                }
+            }
 
+            const targetNumber = (cat === 'peserta') ? "6285724250573" : "6282119408505";
+            
             regForm.classList.add('hidden');
             regSuccess.classList.remove('hidden');
 
@@ -630,4 +665,4 @@
         });
     </script>
 </body>
-</html>inde
+</html>
