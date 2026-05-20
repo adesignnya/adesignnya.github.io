@@ -3,666 +3,934 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Kontes & Pameran Bonsai Nasional 2026 - Change of Seasons</title>
-    <!-- Tailwind CSS -->
+    <title>Undangan Resmi - Tasik Raya Cup 4 2026</title>
+    
+    <!-- Google Fonts & Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
-    <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Montserrat:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
-    <!-- AOS Animation -->
-    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-    <!-- Font Awesome -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,400;0,600;0,700;0,800;1,600&family=Rajdhani:wght@500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- FontAwesome Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Animate.css for smooth initial load -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
 
+    <!-- Custom Tailwind Configuration -->
     <script>
         tailwind.config = {
             theme: {
                 extend: {
                     colors: {
-                        sage: {
-                            50: '#f4f7f4',
-                            100: '#e7ede7',
-                            200: '#ceddce',
-                            300: '#a6c0a6',
-                            400: '#7fa27f',
-                            500: '#5f845f', 
-                            600: '#4a694a',
-                            700: '#3d543d',
-                            800: '#334433',
-                            900: '#2b382b',
+                        navy: {
+                            50: '#eef2f6',
+                            100: '#dbe5ee',
+                            800: '#1e293b',
+                            900: '#0f172a',
+                            950: '#0a0f1d',
                         },
-                        gold: '#C5A059',
+                        gold: {
+                            400: '#fbbf24',
+                            500: '#f59e0b',
+                            600: '#d97706',
+                        }
                     },
                     fontFamily: {
-                        serif: ['Playfair Display', 'serif'],
                         sans: ['Montserrat', 'sans-serif'],
-                        display: ['Cinzel', 'serif'],
+                        sporty: ['Rajdhani', 'sans-serif'],
                     }
                 }
             }
         }
     </script>
+
+    <!-- Custom CSS for specialized patterns and animations -->
     <style>
-        .music-control {
-            position: fixed;
-            bottom: 2rem;
-            right: 2rem;
-            z-index: 50;
+        /* Custom scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
         }
-        .leaf-icon {
-            color: #5f845f;
-            filter: drop-shadow(0 0 5px rgba(95, 132, 95, 0.3));
+        ::-webkit-scrollbar-track {
+            background: #0a0f1d;
         }
-        .btn-premium {
-            transition: all 0.3s ease;
-            position: relative;
-            overflow: hidden;
+        ::-webkit-scrollbar-thumb {
+            background: #f59e0b;
+            border-radius: 4px;
         }
-        .btn-premium::after {
-            content: '';
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            width: 0;
-            height: 0;
-            background: rgba(255, 255, 255, 0.2);
-            border-radius: 50%;
-            transform: translate(-50%, -50%);
-            transition: width 0.6s, height 0.6s;
+        ::-webkit-scrollbar-thumb:hover {
+            background: #d97706;
         }
-        .btn-premium:hover::after {
-            width: 300%;
-            height: 300%;
+
+        /* Football tactical line styling in background */
+        .football-tactics-bg {
+            background-image: 
+                radial-gradient(circle at 50% 50%, transparent 60%, rgba(245, 158, 11, 0.03) 60%),
+                linear-gradient(to right, rgba(255, 255, 255, 0.02) 1px, transparent 1px),
+                linear-gradient(to bottom, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
+            background-size: 100px 100px, 50px 50px, 50px 50px;
         }
-        .hero-bg {
-            background: linear-gradient(to bottom, rgba(43, 56, 43, 0.8), rgba(43, 56, 43, 0.6)), 
-                        url('https://lh3.googleusercontent.com/d/1TAiHusAEYpKNqdtzZhmTlCztE4iwRK_n=w1600');
-            background-size: cover;
-            background-position: center;
-            background-attachment: fixed;
+
+        /* Custom glow effects */
+        .glow-gold {
+            box-shadow: 0 0 20px rgba(245, 158, 11, 0.35);
         }
-        .timeline-item {
-            position: relative;
-            padding-left: 2rem;
-            border-left: 1px solid #ceddce;
+        .glow-navy {
+            box-shadow: 0 0 30px rgba(15, 23, 42, 0.8);
         }
-        .timeline-item::before {
-            content: '';
-            position: absolute;
-            left: -5px;
-            top: 0;
-            width: 9px;
-            height: 9px;
-            background: #5f845f;
-            border-radius: 50%;
+
+        /* Spinning record animation for background music button */
+        @keyframes spin-slow {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
         }
-        .price-card {
-            transition: transform 0.3s ease;
+        .animate-spin-slow {
+            animation: spin-slow 8s linear infinite;
         }
-        .price-card:hover {
-            transform: translateY(-5px);
+
+        /* Custom keyframes for float */
+        @keyframes float-ball {
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            50% { transform: translateY(-15px) rotate(10deg); }
         }
-        .trophy-glow {
-            filter: drop-shadow(0 0 10px rgba(197, 160, 89, 0.4));
+        .animate-float {
+            animation: float-ball 6s ease-in-out infinite;
         }
     </style>
 </head>
-<body class="bg-sage-50 text-sage-900 font-sans overflow-x-hidden">
+<body class="bg-navy-950 text-white font-sans overflow-hidden select-none" id="body-container">
 
-    <!-- Pemutar Musik -->
-    <div id="music-player" class="music-control">
-        <button onclick="toggleMusic()" class="w-12 h-12 rounded-full bg-sage-600 text-white shadow-lg flex items-center justify-center hover:bg-sage-700 transition-all duration-300">
-            <i id="music-icon" class="fas fa-music"></i>
-        </button>
-        <audio id="bg-music" loop>
-            <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-17.mp3" type="audio/mpeg">
-        </audio>
+    <!-- SPLASH SCREEN / COVER OVERLAY -->
+    <div id="splash-screen" class="fixed inset-0 z-50 flex flex-col items-center justify-center bg-navy-950 text-center px-4 transition-all duration-1000 ease-out">
+        <!-- Tactical background lines on cover -->
+        <div class="absolute inset-0 football-tactics-bg opacity-40 pointer-events-none"></div>
+        <div class="absolute inset-0 bg-gradient-to-b from-navy-950/80 via-navy-950 to-navy-950/95 pointer-events-none"></div>
+
+        <div class="relative z-10 max-w-lg mx-auto flex flex-col items-center justify-center animate__animated animate__fadeIn">
+            <!-- Decorative Football Emblem Badge -->
+            <div class="relative mb-6">
+                <div class="absolute inset-0 bg-gold-500 rounded-full blur-xl opacity-35 animate-pulse"></div>
+                <!-- Custom Event Logo from Google Drive on Splash -->
+                <div class="w-32 h-32 md:w-36 md:h-36 flex items-center justify-center animate-float">
+                    <img 
+                        src="https://lh3.googleusercontent.com/d/1EchvOKYT3SJln7mimFZwKtrJfoVEoSVE" 
+                        alt="Logo Tasik Raya Cup 4 2026" 
+                        class="w-full h-full object-contain filter drop-shadow-[0_0_15px_rgba(245,158,11,0.6)]"
+                        onerror="this.src='https://placehold.co/150x150/0f172a/fbbf24?text=TRC4'"
+                    />
+                </div>
+                <!-- Mini Floating Football icon -->
+                <div class="absolute -bottom-1 -right-1 bg-gold-500 text-navy-950 w-8 h-8 rounded-full flex items-center justify-center font-bold text-sm shadow-md">
+                    <i class="fa-solid fa-soccer-ball animate-spin-slow"></i>
+                </div>
+            </div>
+
+            <!-- Event Subtitle / Edition -->
+            <span class="text-gold-400 font-sporty text-xl md:text-2xl tracking-widest uppercase font-bold mb-2">FESTIVAL GRASSROOTS</span>
+            
+            <!-- Main Title in Cover -->
+            <h1 class="text-3xl md:text-5xl font-sporty font-extrabold text-white tracking-tight leading-none mb-4">
+                TASIK RAYA CUP 4<br><span class="text-gold-400 text-2xl md:text-4xl">TAHUN 2026</span>
+            </h1>
+
+            <p class="text-slate-400 text-sm md:text-base max-w-sm mb-8 italic">
+                "Membina Harapan, Mencetak Bintang Masa Depan Sepak Bola Indonesia."
+            </p>
+
+            <!-- Personalized Greeting Section -->
+            <div class="bg-navy-900/80 border border-slate-800 rounded-2xl p-5 mb-8 w-full max-w-md backdrop-blur-md">
+                <p class="text-xs text-slate-400 uppercase tracking-widest mb-1">Kepada Yth.</p>
+                <h3 id="recipient-name" class="text-lg md:text-xl font-semibold text-gold-400">Kepala Sekolah / Official Tim</h3>
+                <p class="text-xs text-slate-500 mt-2">Undangan Resmi Kejuaraan Grassroots Sepak Bola</p>
+            </div>
+
+            <!-- Elegant Open Invitation Button -->
+            <button onclick="openInvitation()" class="group relative px-8 py-4 bg-gradient-to-r from-gold-500 to-gold-600 hover:from-gold-400 hover:to-gold-500 text-navy-950 font-sporty text-lg font-bold uppercase tracking-wider rounded-xl shadow-lg transition-all duration-300 transform hover:scale-105 active:scale-95 glow-gold">
+                <span class="absolute right-3 top-3 w-2 h-2 rounded-full bg-navy-950 animate-ping"></span>
+                <i class="fa-solid fa-envelope-open-text mr-2 transition-transform group-hover:rotate-12"></i> 
+                Buka Undangan
+            </button>
+        </div>
     </div>
 
-    <!-- Hero Section -->
-    <header class="relative min-h-screen flex items-center justify-center overflow-hidden hero-bg">
-        <div class="relative z-20 text-center px-4 py-20" data-aos="fade-up" data-aos-duration="1500">
-            <span class="inline-block text-sage-200 tracking-[0.4em] uppercase text-xs md:text-sm mb-6 font-semibold">Nasional Exhibition</span>
-            
-            <h1 class="font-display text-4xl md:text-6xl lg:text-7xl text-white mb-8 leading-tight">
-                KONTES & PAMERAN <br> 
-                <span class="text-sage-200">BONSAI NASIONAL 2026</span>
-            </h1>
-            
-            <div class="flex items-center justify-center gap-4 mb-8">
-                <div class="w-12 h-[1px] bg-gold"></div>
-                <i class="fas fa-leaf text-gold text-sm"></i>
-                <div class="w-12 h-[1px] bg-gold"></div>
-            </div>
-            
-            <p class="font-serif italic text-2xl md:text-3xl text-sage-100 mb-4">"Change of Seasons"</p>
-            <p class="text-white/70 tracking-[0.2em] text-sm md:text-lg uppercase max-w-2xl mx-auto">Merawat Waktu, Menyambut Perubahan</p>
-            
-            <div class="mt-12">
-                <a href="#registration" class="inline-block px-10 py-4 bg-white text-sage-800 tracking-widest uppercase text-xs font-bold rounded-full transition-all duration-300 hover:bg-sage-100 btn-premium shadow-2xl">
+    <!-- FLOATING CONTROLS (Only visible after open) -->
+    <div id="floating-music-btn" class="fixed bottom-6 right-6 z-40 hidden flex items-center gap-3">
+        <!-- Floating Music Control Panel -->
+        <button onclick="toggleMusic()" class="relative w-14 h-14 bg-navy-900/90 border-2 border-gold-500 rounded-full flex items-center justify-center text-gold-400 hover:text-white glow-gold transition-all duration-300 transform hover:scale-110 active:scale-90 shadow-2xl backdrop-blur-md">
+            <span class="absolute inset-0 rounded-full border border-gold-400/30 animate-ping pointer-events-none"></span>
+            <i id="music-icon" class="fa-solid fa-music text-xl animate-spin-slow"></i>
+        </button>
+    </div>
+
+    <!-- BACKGROUND MUSIC element -->
+    <!-- Using a secure royalty-free cinematic sports anthem background track -->
+    <audio id="bg-music" loop preload="auto">
+        <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-8.mp3" type="audio/mpeg">
+    </audio>
+
+    <!-- MAIN APP WRAPPER -->
+    <div id="main-content" class="hidden opacity-0 transition-opacity duration-1000 w-full min-h-screen relative">
+        
+        <!-- Navigation bar -->
+        <nav class="fixed top-0 inset-x-0 z-30 bg-navy-950/80 backdrop-blur-md border-b border-slate-800 py-3 px-4 md:px-8">
+            <div class="max-w-7xl mx-auto flex items-center justify-between">
+                <!-- Branding logo/name -->
+                <div class="flex items-center gap-2">
+                    <span class="font-sporty font-bold text-xl md:text-2xl text-transparent bg-clip-text bg-gradient-to-r from-gold-400 to-white">
+                        TRC 4 2026
+                    </span>
+                </div>
+                <!-- Navigation Links -->
+                <div class="hidden md:flex items-center gap-6 font-sporty text-sm uppercase tracking-wider">
+                    <a href="#hero" class="hover:text-gold-400 transition-colors">Beranda</a>
+                    <a href="#tentang" class="hover:text-gold-400 transition-colors">Tentang Event</a>
+                    <a href="#jadwal" class="hover:text-gold-400 transition-colors">Jadwal KU</a>
+                    <a href="#pendaftaran" class="hover:text-gold-400 transition-colors">RSVP & Daftar</a>
+                    <a href="#lokasi" class="hover:text-gold-400 transition-colors">Lokasi</a>
+                </div>
+                <!-- CTA Button -->
+                <a href="#pendaftaran" class="px-4 py-2 bg-gold-500 hover:bg-gold-400 text-navy-950 font-sporty font-bold text-xs uppercase tracking-wider rounded-lg transition-transform hover:scale-105 active:scale-95">
                     Daftar Sekarang
                 </a>
             </div>
-        </div>
-        <div class="absolute inset-0 bg-black/30 pointer-events-none"></div>
-    </header>
+        </nav>
 
-    <!-- Countdown Section -->
-    <section id="countdown" class="py-20 px-4 bg-white relative -mt-10 mx-4 md:mx-auto max-w-5xl rounded-3xl shadow-xl z-30">
-        <div class="text-center">
-            <div data-aos="fade-down">
-                <h2 class="font-display text-2xl text-sage-800 mb-10 tracking-wider">Menghitung Hari Menuju Pembukaan</h2>
-            </div>
-            
-            <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
-                <div class="p-6 rounded-2xl bg-sage-50 border border-sage-100" data-aos="zoom-in" data-aos-delay="100">
-                    <span id="days" class="block text-4xl md:text-5xl font-display text-sage-700 mb-2">00</span>
-                    <span class="text-[10px] uppercase tracking-widest text-sage-400 font-black">Hari</span>
-                </div>
-                <div class="p-6 rounded-2xl bg-sage-50 border border-sage-100" data-aos="zoom-in" data-aos-delay="200">
-                    <span id="hours" class="block text-4xl md:text-5xl font-display text-sage-700 mb-2">00</span>
-                    <span class="text-[10px] uppercase tracking-widest text-sage-400 font-black">Jam</span>
-                </div>
-                <div class="p-6 rounded-2xl bg-sage-50 border border-sage-100" data-aos="zoom-in" data-aos-delay="300">
-                    <span id="minutes" class="block text-4xl md:text-5xl font-display text-sage-700 mb-2">00</span>
-                    <span class="text-[10px] uppercase tracking-widest text-sage-400 font-black">Menit</span>
-                </div>
-                <div class="p-6 rounded-2xl bg-sage-50 border border-sage-100" data-aos="zoom-in" data-aos-delay="400">
-                    <span id="seconds" class="block text-4xl md:text-5xl font-display text-sage-700 mb-2">00</span>
-                    <span class="text-[10px] uppercase tracking-widest text-sage-400 font-black">Detik</span>
-                </div>
-            </div>
-        </div>
-    </section>
+        <!-- HERO SECTION -->
+        <header id="hero" class="relative min-h-screen flex items-center justify-center pt-16 overflow-hidden">
+            <!-- Parallax background images & gradients -->
+            <div class="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-20 transform scale-110 transition-transform duration-1000" style="background-image: url('https://images.unsplash.com/photo-1508098682722-e99c43a406b2?auto=format&fit=crop&q=80&w=1200');"></div>
+            <!-- Tactical lines background -->
+            <div class="absolute inset-0 football-tactics-bg opacity-30 pointer-events-none"></div>
+            <!-- Premium Dark Blue overlay gradient -->
+            <div class="absolute inset-0 bg-gradient-to-b from-navy-950/40 via-navy-950/90 to-navy-950"></div>
 
-    <!-- Detail Acara -->
-    <section class="py-24 bg-sage-50 border-b border-sage-100">
-        <div class="max-w-4xl mx-auto px-4 text-center">
-            <div class="mb-16" data-aos="fade-up">
-                <i class="fas fa-seedling leaf-icon text-3xl mb-6"></i>
-                <h2 class="font-display text-3xl text-sage-800 mb-6">Informasi Pelaksanaan</h2>
-                <p class="text-sage-600 leading-relaxed max-w-2xl mx-auto italic font-serif">
-                    "Seni bonsai mengajarkan kita bahwa perubahan adalah bagian dari keindahan yang harus dirawat dengan penuh kesabaran."
+            <div class="relative z-10 max-w-5xl mx-auto px-4 py-12 flex flex-col items-center justify-center text-center">
+                <!-- Golden Accent Ribbon -->
+                <div class="inline-flex items-center gap-2 bg-gradient-to-r from-gold-600/30 to-gold-500/30 border border-gold-400/30 px-4 py-1.5 rounded-full mb-6 animate__animated animate__fadeInDown">
+                    <i class="fa-solid fa-star text-gold-400 text-xs animate-pulse"></i>
+                    <span class="text-gold-400 font-sporty text-xs tracking-widest uppercase font-bold">Undangan Turnamen Terbuka Grassroots</span>
+                    <i class="fa-solid fa-star text-gold-400 text-xs animate-pulse"></i>
+                </div>
+
+                <!-- Replace main text header with the requested Google Drive Image -->
+                <div class="relative w-full max-w-lg md:max-w-xl mb-4 flex justify-center items-center animate__animated animate__zoomIn">
+                    <div class="absolute inset-0 bg-gold-500 rounded-full blur-3xl opacity-20"></div>
+                    <img 
+                        src="https://lh3.googleusercontent.com/d/1EchvOKYT3SJln7mimFZwKtrJfoVEoSVE" 
+                        alt="Logo Utama Tasik Raya Cup 4 2026" 
+                        class="w-full max-h-48 md:max-h-64 object-contain filter drop-shadow-[0_4px_20px_rgba(245,158,11,0.5)]"
+                        onerror="this.src='https://placehold.co/600x200/0f172a/fbbf24?text=TASIK+RAYA+CUP+4+2026'"
+                    />
+                </div>
+
+                <!-- Event Category Target and Tagline -->
+                <p class="text-lg md:text-2xl text-slate-300 font-medium mb-8 max-w-2xl animate__animated animate__fadeIn">
+                    Mencetak Bintang-Bintang Muda Berbakat Sepak Bola Indonesia Sejak Usia Dini.
                 </p>
-            </div>
 
-            <div class="grid md:grid-cols-2 gap-12 text-left">
-                <div class="space-y-10" data-aos="fade-right">
-                    <div class="flex items-start gap-5">
-                        <div class="w-12 h-12 bg-white rounded-xl flex items-center justify-center text-sage-600 shrink-0 shadow-md">
-                            <i class="far fa-calendar-check text-xl"></i>
+                <!-- MAIN INVITED IMAGE -->
+                <!-- Styled inside an elegant, modern golden frame container -->
+                <div class="relative w-full max-w-3xl mb-12 rounded-2xl p-1 bg-gradient-to-b from-gold-400 via-gold-600 to-navy-950 shadow-2xl animate__animated animate__fadeInUp">
+                    <div class="absolute -inset-1 bg-gradient-to-r from-gold-500 to-navy-500 rounded-2xl blur-lg opacity-35"></div>
+                    <div class="relative bg-navy-950 rounded-[14px] overflow-hidden aspect-[16/9] flex items-center justify-center">
+                        <img 
+                            src="https://lh3.googleusercontent.com/d/1QOR9iyOHKzHSmNw4MiMUFr5kAza57yqG" 
+                            alt="Tasik Raya Cup 4 Official Banner" 
+                            class="w-full h-full object-cover"
+                            onerror="this.src='https://placehold.co/800x450/0f172a/fbbf24?text=TASIK+RAYA+CUP+4+2026'"
+                        />
+                        <div class="absolute inset-0 bg-gradient-to-t from-navy-950 via-transparent to-transparent"></div>
+                    </div>
+                </div>
+
+                <!-- Date & Location Badges on Hero -->
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4 w-full max-w-2xl mb-12">
+                    <div class="flex items-center gap-4 bg-navy-900/60 border border-slate-800 hover:border-gold-500/50 p-4 rounded-xl backdrop-blur-sm transition-all duration-300">
+                        <div class="w-12 h-12 rounded-lg bg-gold-500/10 flex items-center justify-center text-gold-400">
+                            <i class="fa-regular fa-calendar-days text-2xl"></i>
                         </div>
-                        <div>
-                            <h4 class="font-bold text-sage-800 uppercase tracking-widest text-sm mb-2">Tanggal Pelaksanaan</h4>
-                            <p class="text-sage-600 font-medium text-lg">19 - 28 April 2026</p>
+                        <div class="text-left">
+                            <p class="text-xs text-slate-400 uppercase">Tanggal Pelaksanaan</p>
+                            <p class="font-sporty text-md font-bold text-white">18, 19, 25 & 26 Juli 2026</p>
                         </div>
                     </div>
+                    <div class="flex items-center gap-4 bg-navy-900/60 border border-slate-800 hover:border-gold-500/50 p-4 rounded-xl backdrop-blur-sm transition-all duration-300">
+                        <div class="w-12 h-12 rounded-lg bg-gold-500/10 flex items-center justify-center text-gold-400">
+                            <i class="fa-solid fa-map-location-dot text-2xl"></i>
+                        </div>
+                        <div class="text-left">
+                            <p class="text-xs text-slate-400 uppercase">Tempat / Lokasi</p>
+                            <p class="font-sporty text-md font-bold text-white">Stadion Wiradadaha Tasikmalaya</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Downward Arrow Indicator -->
+                <div class="animate-bounce">
+                    <a href="#countdown-section" class="text-slate-500 hover:text-gold-400 transition-colors">
+                        <i class="fa-solid fa-chevron-down text-2xl"></i>
+                    </a>
+                </div>
+            </div>
+        </header>
+
+        <!-- COUNTDOWN TIMER SECTION -->
+        <section id="countdown-section" class="relative py-16 bg-gradient-to-b from-navy-950 to-navy-900 border-y border-slate-900 overflow-hidden">
+            <div class="absolute inset-0 bg-gradient-to-r from-gold-500/5 via-transparent to-gold-500/5 pointer-events-none"></div>
+            <div class="max-w-6xl mx-auto px-4 relative z-10 text-center">
+                
+                <h2 class="font-sporty text-2xl md:text-3xl font-extrabold uppercase tracking-widest text-gold-400 mb-2">HITUNG MUNDUR KICKOFF</h2>
+                <p class="text-slate-400 text-sm md:text-base max-w-lg mx-auto mb-8">Bersiaplah menuju kickoff perhelatan turnamen pembinaan grassroots terbesar se-Tasik Raya!</p>
+
+                <!-- Countdown Units Container -->
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6 max-w-3xl mx-auto">
+                    <!-- Days -->
+                    <div class="bg-navy-950/80 border-2 border-slate-800 rounded-2xl p-6 glow-navy relative group overflow-hidden hover:border-gold-500/50 transition-all duration-300">
+                        <div class="absolute inset-0 bg-gradient-to-t from-gold-500/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
+                        <span id="days" class="font-sporty text-4xl md:text-6xl font-extrabold text-transparent bg-clip-text bg-gradient-to-b from-white to-slate-200">00</span>
+                        <p class="text-xs uppercase tracking-widest text-gold-400 font-semibold mt-2">Hari</p>
+                    </div>
+                    <!-- Hours -->
+                    <div class="bg-navy-950/80 border-2 border-slate-800 rounded-2xl p-6 glow-navy relative group overflow-hidden hover:border-gold-500/50 transition-all duration-300">
+                        <div class="absolute inset-0 bg-gradient-to-t from-gold-500/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
+                        <span id="hours" class="font-sporty text-4xl md:text-6xl font-extrabold text-transparent bg-clip-text bg-gradient-to-b from-white to-slate-200">00</span>
+                        <p class="text-xs uppercase tracking-widest text-gold-400 font-semibold mt-2">Jam</p>
+                    </div>
+                    <!-- Minutes -->
+                    <div class="bg-navy-950/80 border-2 border-slate-800 rounded-2xl p-6 glow-navy relative group overflow-hidden hover:border-gold-500/50 transition-all duration-300">
+                        <div class="absolute inset-0 bg-gradient-to-t from-gold-500/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
+                        <span id="minutes" class="font-sporty text-4xl md:text-6xl font-extrabold text-transparent bg-clip-text bg-gradient-to-b from-white to-slate-200">00</span>
+                        <p class="text-xs uppercase tracking-widest text-gold-400 font-semibold mt-2">Menit</p>
+                    </div>
+                    <!-- Seconds -->
+                    <div class="bg-navy-950/80 border-2 border-slate-800 rounded-2xl p-6 glow-navy relative group overflow-hidden hover:border-gold-500/50 transition-all duration-300">
+                        <div class="absolute inset-0 bg-gradient-to-t from-gold-500/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
+                        <span id="seconds" class="font-sporty text-4xl md:text-6xl font-extrabold text-transparent bg-clip-text bg-gradient-to-b from-gold-400 to-gold-600">00</span>
+                        <p class="text-xs uppercase tracking-widest text-gold-400 font-semibold mt-2">Detik</p>
+                    </div>
+                </div>
+
+                <div class="mt-8 text-xs text-slate-500 uppercase tracking-widest">
+                    *Waktu pelaksanaan Kickoff: Sabtu, 18 Juli 2026 Pukul 08:00 WIB
+                </div>
+            </div>
+        </section>
+
+        <!-- TOURNAMENT INFO SECTION -->
+        <section id="tentang" class="py-20 bg-navy-950 relative overflow-hidden">
+            <!-- Left & Right floating visual soccer elements in bg -->
+            <div class="absolute left-0 top-1/4 w-72 h-72 bg-gold-500/5 rounded-full blur-3xl pointer-events-none"></div>
+            <div class="absolute right-0 bottom-1/4 w-72 h-72 bg-blue-500/5 rounded-full blur-3xl pointer-events-none"></div>
+
+            <div class="max-w-7xl mx-auto px-4 relative z-10">
+                <div class="text-center mb-16">
+                    <span class="text-gold-400 font-sporty font-bold text-sm tracking-widest uppercase">PENGANTAR & REGULASI</span>
+                    <h2 class="text-3xl md:text-5xl font-sporty font-extrabold mt-2 tracking-tight">INFORMASI TURNAMEN</h2>
+                    <div class="w-24 h-1 bg-gradient-to-r from-transparent via-gold-500 to-transparent mx-auto mt-4"></div>
+                </div>
+
+                <!-- Info Cards Layout - Reworked into 4 beautiful columns -->
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
                     
-                    <a href="https://maps.app.goo.gl/k5ceCAHDtYCu7iLA6" target="_blank" class="flex items-start gap-5 group">
-                        <div class="w-12 h-12 bg-white rounded-xl flex items-center justify-center text-sage-600 shrink-0 shadow-md group-hover:bg-sage-600 group-hover:text-white transition-all duration-300">
-                            <i class="fas fa-location-dot text-xl"></i>
-                        </div>
+                    <!-- Card 1: Kategori Usia -->
+                    <div class="bg-navy-900/50 border border-slate-800 rounded-2xl p-6 hover:border-gold-500/30 transition-all duration-300 group flex flex-col justify-between">
                         <div>
-                            <h4 class="font-bold text-sage-800 uppercase tracking-widest text-sm mb-2">Lokasi Pameran</h4>
-                            <p class="text-sage-600 font-medium group-hover:text-sage-800 transition-colors">Plaza Asia Tasikmalaya</p>
-                            <p class="text-sage-500 text-xs leading-relaxed uppercase tracking-tighter">Area Parkir (Dekat TeeJay Waterpark)<br>Jl. HZ. Mustofa No. 326, Tasikmalaya</p>
-                            <span class="text-[10px] text-gold font-bold uppercase mt-2 block tracking-widest">Buka di Maps <i class="fas fa-arrow-right ml-1"></i></span>
+                            <div class="w-14 h-14 bg-gold-500/10 rounded-xl flex items-center justify-center text-gold-400 mb-6 group-hover:scale-110 transition-transform">
+                                <i class="fa-solid fa-users text-3xl"></i>
+                            </div>
+                            <h3 class="font-sporty text-xl font-bold text-white mb-3">U9 s.d U12</h3>
+                            <p class="text-slate-400 text-sm leading-relaxed">
+                                24 tim/ KU, 1 tim terdiri dari maks. 12 pemain dan 2 official.
+                            </p>
                         </div>
+                        <div class="mt-4 pt-2 border-t border-slate-800/50 text-xs text-gold-400 font-semibold tracking-wider uppercase">Fase Kelompok Umur</div>
+                    </div>
+
+                    <!-- Card 2: Piala & Penghargaan -->
+                    <div class="bg-navy-900/50 border border-slate-800 rounded-2xl p-6 hover:border-gold-500/30 transition-all duration-300 group flex flex-col justify-between">
+                        <div>
+                            <div class="w-14 h-14 bg-gold-500/10 rounded-xl flex items-center justify-center text-gold-400 mb-6 group-hover:scale-110 transition-transform">
+                                <i class="fa-solid fa-trophy text-3xl"></i>
+                            </div>
+                            <h3 class="font-sporty text-xl font-bold text-white mb-3">Piala & Penghargaan</h3>
+                            <p class="text-slate-400 text-sm leading-relaxed">
+                                Juara 1, 2 dan 3 Bersama, Best Player, Best Goalkeeper, Best Coach, dan Top score (masing-masing KU).
+                            </p>
+                        </div>
+                        <div class="mt-4 pt-2 border-t border-slate-800/50 text-xs text-gold-400 font-semibold tracking-wider uppercase">Prestasi Terbaik</div>
+                    </div>
+
+                    <!-- Card 3: Pendaftaran -->
+                    <div class="bg-navy-900/50 border border-slate-800 rounded-2xl p-6 hover:border-gold-500/30 transition-all duration-300 group flex flex-col justify-between">
+                        <div>
+                            <div class="w-14 h-14 bg-gold-500/10 rounded-xl flex items-center justify-center text-gold-400 mb-6 group-hover:scale-110 transition-transform">
+                                <i class="fa-solid fa-wallet text-3xl"></i>
+                            </div>
+                            <h3 class="font-sporty text-xl font-bold text-white mb-3">Pendaftaran</h3>
+                            <p class="text-slate-400 text-sm leading-relaxed">
+                                Rp. 1.300.000/Tim, transfer ke Bank BRI dengan nomor rekening <span class="text-gold-400 font-bold block mt-1">0100-01-003926-30-6</span> a/n Yayasan Tasik Raya.
+                            </p>
+                        </div>
+                        <div class="mt-4 pt-4 border-t border-slate-800/50 flex items-center justify-between">
+                            <button onclick="copyToClipboard('0100-01-003926-30-6', this)" class="text-xs bg-navy-950 hover:bg-gold-500 hover:text-navy-950 text-gold-400 px-3 py-1.5 rounded-lg font-bold uppercase tracking-wider transition-all flex items-center gap-1.5">
+                                <i class="fa-regular fa-copy"></i> Salin Rekening
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Card 4: Booking List DP -->
+                    <div class="bg-navy-900/50 border border-slate-800 rounded-2xl p-6 hover:border-gold-500/30 transition-all duration-300 group flex flex-col justify-between">
+                        <div>
+                            <div class="w-14 h-14 bg-gold-500/10 rounded-xl flex items-center justify-center text-gold-400 mb-6 group-hover:scale-110 transition-transform">
+                                <i class="fa-solid fa-receipt text-3xl"></i>
+                            </div>
+                            <h3 class="font-sporty text-xl font-bold text-white mb-3">Booking List DP</h3>
+                            <p class="text-slate-400 text-sm leading-relaxed">
+                                Rp.300.000 transfer ke Bank BRI dengan nomor rekening <span class="text-gold-400 font-bold block mt-1">0100-01-003926-30-6</span> a/n Yayasan Tasik Raya.
+                            </p>
+                        </div>
+                        <div class="mt-4 pt-4 border-t border-slate-800/50 flex items-center justify-between">
+                            <button onclick="copyToClipboard('0100-01-003926-30-6', this)" class="text-xs bg-navy-950 hover:bg-gold-500 hover:text-navy-950 text-gold-400 px-3 py-1.5 rounded-lg font-bold uppercase tracking-wider transition-all flex items-center gap-1.5">
+                                <i class="fa-regular fa-copy"></i> Salin Rekening
+                            </button>
+                        </div>
+                    </div>
+
+                </div>
+
+                <!-- Category Target Info -->
+                <div class="mt-16 bg-gradient-to-r from-navy-900/60 via-navy-900/80 to-navy-900/60 border border-slate-800 rounded-2xl p-8 backdrop-blur-sm text-center">
+                    <h3 class="font-sporty text-2xl font-bold text-gold-400 mb-6">KATEGORI USIA PESERTA (KU)</h3>
+                    <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+                        <div class="p-4 bg-navy-950/80 border border-slate-800 rounded-xl hover:border-gold-500/30 transition-all">
+                            <span class="font-sporty text-2xl font-extrabold text-white block">U-9</span>
+                            <span class="text-xs text-slate-400">Lahir 2017/2018</span>
+                        </div>
+                        <div class="p-4 bg-navy-950/80 border border-slate-800 rounded-xl hover:border-gold-500/30 transition-all">
+                            <span class="font-sporty text-2xl font-extrabold text-white block">U-10</span>
+                            <span class="text-xs text-slate-400">Lahir 2016</span>
+                        </div>
+                        <div class="p-4 bg-navy-950/80 border border-slate-800 rounded-xl hover:border-gold-500/30 transition-all">
+                            <span class="font-sporty text-2xl font-extrabold text-white block">U-11</span>
+                            <span class="text-xs text-slate-400">Lahir 2015</span>
+                        </div>
+                        <div class="p-4 bg-navy-950/80 border border-slate-800 rounded-xl hover:border-gold-500/30 transition-all">
+                            <span class="font-sporty text-2xl font-extrabold text-white block">U-12</span>
+                            <span class="text-xs text-slate-400">Lahir 2014</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- TIMELINE SECTION -->
+        <section id="jadwal" class="py-20 bg-navy-900 relative">
+            <div class="max-w-4xl mx-auto px-4 relative z-10">
+                <div class="text-center mb-16">
+                    <span class="text-gold-400 font-sporty font-bold text-sm tracking-widest uppercase">AGENDA PELAKSANAAN</span>
+                    <h2 class="text-3xl md:text-5xl font-sporty font-extrabold mt-2 tracking-tight">TIMELINE KATEGORI USIA</h2>
+                    <div class="w-24 h-1 bg-gradient-to-r from-transparent via-gold-500 to-transparent mx-auto mt-4"></div>
+                </div>
+
+                <!-- Timeline Roadmap - Fully Custom based on user request -->
+                <div class="relative border-l-2 border-gold-500/30 ml-4 md:ml-32 py-4">
+                    
+                    <!-- Agenda 1: Sabtu, 18 Juli 2026 -->
+                    <div class="mb-12 relative pl-8 md:pl-10">
+                        <div class="absolute -left-[11px] top-1 bg-navy-950 border-2 border-gold-500 w-5 h-5 rounded-full flex items-center justify-center">
+                            <div class="w-2 h-2 bg-gold-400 rounded-full animate-ping"></div>
+                        </div>
+                        <!-- Desktop Left Label -->
+                        <div class="hidden md:block absolute -left-36 top-1 text-right w-28">
+                            <span class="font-sporty font-bold text-gold-400 text-lg">18 Juli 2026</span>
+                            <span class="text-xs text-slate-500 block">Sabtu</span>
+                        </div>
+                        <!-- Timeline Content Card -->
+                        <div class="bg-navy-950/80 border border-slate-800 p-6 rounded-2xl hover:border-gold-500/20 transition-all">
+                            <span class="inline-block md:hidden font-sporty font-bold text-gold-400 text-sm mb-2">Sabtu, 18 Juli 2026</span>
+                            <h4 class="font-sporty text-xl font-bold text-white mb-2">U9 (Kelahiran 2017 & 2018)</h4>
+                            <p class="text-slate-400 text-sm">Kickoff penyisihan hingga babak final khusus untuk Kelompok Umur 9 (U-9).</p>
+                        </div>
+                    </div>
+
+                    <!-- Agenda 2: Minggu, 19 Juli 2026 -->
+                    <div class="mb-12 relative pl-8 md:pl-10">
+                        <div class="absolute -left-[11px] top-1 bg-navy-950 border-2 border-gold-500 w-5 h-5 rounded-full"></div>
+                        <!-- Desktop Left Label -->
+                        <div class="hidden md:block absolute -left-36 top-1 text-right w-28">
+                            <span class="font-sporty font-bold text-gold-400 text-lg">19 Juli 2026</span>
+                            <span class="text-xs text-slate-500 block">Minggu</span>
+                        </div>
+                        <!-- Timeline Content Card -->
+                        <div class="bg-navy-950/80 border border-slate-800 p-6 rounded-2xl hover:border-gold-500/20 transition-all">
+                            <span class="inline-block md:hidden font-sporty font-bold text-gold-400 text-sm mb-2">Minggu, 19 Juli 2026</span>
+                            <h4 class="font-sporty text-xl font-bold text-white mb-2">U10 (Kelahiran 2016)</h4>
+                            <p class="text-slate-400 text-sm">Pelaksanaan pertandingan penuh untuk penentuan juara Kelompok Umur 10 (U-10).</p>
+                        </div>
+                    </div>
+
+                    <!-- Agenda 3: Sabtu, 25 Juli 2026 -->
+                    <div class="mb-12 relative pl-8 md:pl-10">
+                        <div class="absolute -left-[11px] top-1 bg-navy-950 border-2 border-gold-500 w-5 h-5 rounded-full"></div>
+                        <!-- Desktop Left Label -->
+                        <div class="hidden md:block absolute -left-36 top-1 text-right w-28">
+                            <span class="font-sporty font-bold text-gold-400 text-lg">25 Juli 2026</span>
+                            <span class="text-xs text-slate-500 block">Sabtu</span>
+                        </div>
+                        <!-- Timeline Content Card -->
+                        <div class="bg-navy-950/80 border border-slate-800 p-6 rounded-2xl hover:border-gold-500/20 transition-all">
+                            <span class="inline-block md:hidden font-sporty font-bold text-gold-400 text-sm mb-2">Sabtu, 25 Juli 2026</span>
+                            <h4 class="font-sporty text-xl font-bold text-white mb-2">U11 (Kelahiran 2015)</h4>
+                            <p class="text-slate-400 text-sm">Laga sengit kompetitif untuk penyaringan talenta Kelompok Umur 11 (U-11).</p>
+                        </div>
+                    </div>
+
+                    <!-- Agenda 4: Minggu, 26 Juli 2026 -->
+                    <div class="relative pl-8 md:pl-10">
+                        <div class="absolute -left-[11px] top-1 bg-navy-950 border-2 border-gold-500 w-5 h-5 rounded-full">
+                            <div class="w-full h-full bg-gold-400/20 rounded-full animate-ping"></div>
+                        </div>
+                        <!-- Desktop Left Label -->
+                        <div class="hidden md:block absolute -left-36 top-1 text-right w-28">
+                            <span class="font-sporty font-bold text-gold-400 text-lg">26 Juli 2026</span>
+                            <span class="text-xs text-slate-500 block">Minggu</span>
+                        </div>
+                        <!-- Timeline Content Card -->
+                        <div class="bg-navy-950/80 border border-slate-800 p-6 rounded-2xl hover:border-gold-500/20 transition-all">
+                            <span class="inline-block md:hidden font-sporty font-bold text-gold-400 text-sm mb-2">Minggu, 26 Juli 2026</span>
+                            <h4 class="font-sporty text-xl font-bold text-white mb-2">U12 (Kelahiran 2014)</h4>
+                            <p class="text-slate-400 text-sm">Pertandingan penutup dan penobatan juara pamungkas Kelompok Umur 12 (U-12).</p>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- RSVP & REGISTRATION SECTION -->
+        <section id="pendaftaran" class="py-20 bg-navy-950 relative overflow-hidden">
+            <!-- Decorative overlay pattern -->
+            <div class="absolute inset-0 football-tactics-bg opacity-20 pointer-events-none"></div>
+            
+            <div class="max-w-4xl mx-auto px-4 relative z-10">
+                <div class="text-center mb-12">
+                    <span class="text-gold-400 font-sporty font-bold text-sm tracking-widest uppercase">REGISTRASI PESERTA</span>
+                    <h2 class="text-3xl md:text-5xl font-sporty font-extrabold mt-2 tracking-tight">KONFIRMASI RSVP & TIM</h2>
+                    <div class="w-24 h-1 bg-gradient-to-r from-transparent via-gold-500 to-transparent mx-auto mt-4"></div>
+                    <p class="text-slate-400 text-sm md:text-base max-w-lg mx-auto mt-4">Silakan isi formulir konfirmasi keikutsertaan SSB / Akademi / Tim Sekolah Anda. Setelah klik tombol, Anda akan diarahkan mengirim detail ke WhatsApp panitia.</p>
+                    <span class="inline-block mt-3 px-3 py-1 bg-gold-500/10 border border-gold-500/30 text-gold-400 rounded-full text-xs font-semibold uppercase tracking-wider">
+                        <i class="fa-solid fa-circle-info mr-1.5 animate-pulse"></i> Note: 1 tim, 1 konfirmasi kehadiran
+                    </span>
+                </div>
+
+                <!-- Registration Card container -->
+                <div class="bg-navy-900/60 border border-slate-800 rounded-3xl p-6 md:p-10 backdrop-blur-md relative">
+                    <div class="absolute -top-3 -right-3 w-16 h-16 bg-gold-500/10 rounded-full flex items-center justify-center text-gold-400 transform rotate-12">
+                        <i class="fa-solid fa-file-signature text-2xl animate-pulse"></i>
+                    </div>
+
+                    <form id="rsvp-form" onsubmit="handleRegistrationSubmit(event)" class="space-y-6">
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                            
+                            <!-- Input Tim / Sekolah -->
+                            <div>
+                                <label for="team-name" class="block text-xs font-bold uppercase tracking-wider text-slate-300 mb-2">
+                                    <i class="fa-solid fa-shield-halved text-gold-400 mr-2"></i>Nama SSB / Klub / Sekolah
+                                </label>
+                                <input 
+                                    type="text" 
+                                    id="team-name" 
+                                    name="team_name"
+                                    required
+                                    placeholder="Contoh: SSB Tasik Raya FC"
+                                    class="w-full bg-navy-950/80 border border-slate-700 rounded-xl px-4 py-3 text-white placeholder-slate-500 focus:border-gold-500 focus:ring-1 focus:ring-gold-500 outline-none transition-all"
+                                />
+                            </div>
+
+                            <!-- Input Kategori Usia (Select) -->
+                            <div>
+                                <label for="category-age" class="block text-xs font-bold uppercase tracking-wider text-slate-300 mb-2">
+                                    <i class="fa-solid fa-users text-gold-400 mr-2"></i>Kategori Usia (KU) Utama
+                                </label>
+                                <select 
+                                    id="category-age" 
+                                    name="category_age"
+                                    required
+                                    class="w-full bg-navy-950/80 border border-slate-700 rounded-xl px-4 py-3 text-white focus:border-gold-500 focus:ring-1 focus:ring-gold-500 outline-none transition-all appearance-none"
+                                >
+                                    <option value="" disabled selected class="text-slate-500">Pilih Kategori Usia</option>
+                                    <option value="U-9" class="bg-navy-900">U-9 (Lahir 2017/2018)</option>
+                                    <option value="U-10" class="bg-navy-900">U-10 (Lahir 2016)</option>
+                                    <option value="U-11" class="bg-navy-900">U-11 (Lahir 2015)</option>
+                                    <option value="U-12" class="bg-navy-900">U-12 (Lahir 2014)</option>
+                                    <option value="Multi-Kategori" class="bg-navy-900">Mengirim Multi-Kategori</option>
+                                </select>
+                            </div>
+
+                            <!-- Input Contact Person Name -->
+                            <div>
+                                <label for="manager-name" class="block text-xs font-bold uppercase tracking-wider text-slate-300 mb-2">
+                                    <i class="fa-solid fa-user-tie text-gold-400 mr-2"></i>Nama Manajer / Perwakilan Ofisial
+                                </label>
+                                <input 
+                                    type="text" 
+                                    id="manager-name" 
+                                    name="manager_name"
+                                    required
+                                    placeholder="Contoh: Coach Hendra Saputra"
+                                    class="w-full bg-navy-950/80 border border-slate-700 rounded-xl px-4 py-3 text-white placeholder-slate-500 focus:border-gold-500 focus:ring-1 focus:ring-gold-500 outline-none transition-all"
+                                />
+                            </div>
+
+                            <!-- Input Contact Phone WhatsApp -->
+                            <div>
+                                <label for="phone-number" class="block text-xs font-bold uppercase tracking-wider text-slate-300 mb-2">
+                                    <i class="fa-brands fa-whatsapp text-gold-400 mr-2"></i>Nomor WhatsApp Aktif
+                                </label>
+                                <input 
+                                    type="tel" 
+                                    id="phone-number" 
+                                    name="phone_number"
+                                    required
+                                    placeholder="Contoh: 081234567890"
+                                    class="w-full bg-navy-950/80 border border-slate-700 rounded-xl px-4 py-3 text-white placeholder-slate-500 focus:border-gold-500 focus:ring-1 focus:ring-gold-500 outline-none transition-all"
+                                />
+                            </div>
+
+                        </div>
+
+                        <!-- RSVP Status Radio Buttons -->
+                        <div class="mt-6">
+                            <label class="block text-xs font-bold uppercase tracking-wider text-slate-300 mb-3">
+                                <i class="fa-solid fa-circle-question text-gold-400 mr-2"></i>Konfirmasi Keikutsertaan
+                            </label>
+                            <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                                <label class="flex items-center gap-3 bg-navy-950/60 border border-slate-800 p-4 rounded-xl cursor-pointer hover:border-gold-500/50 transition-all select-none">
+                                    <input type="radio" name="rsvp_status" value="Siap Hadir & Daftar" checked class="w-4 h-4 text-gold-500 focus:ring-gold-500 accent-gold-500">
+                                    <span class="text-sm font-semibold">Siap Hadir & Daftar</span>
+                                </label>
+                                <label class="flex items-center gap-3 bg-navy-950/60 border border-slate-800 p-4 rounded-xl cursor-pointer hover:border-gold-500/50 transition-all select-none">
+                                    <input type="radio" name="rsvp_status" value="Masih Koordinasi" class="w-4 h-4 text-gold-500 focus:ring-gold-500 accent-gold-500">
+                                    <span class="text-sm font-semibold">Masih Koordinasi</span>
+                                </label>
+                                <label class="flex items-center gap-3 bg-navy-950/60 border border-slate-800 p-4 rounded-xl cursor-pointer hover:border-gold-500/50 transition-all select-none">
+                                    <input type="radio" name="rsvp_status" value="Berhalangan Hadir" class="w-4 h-4 text-gold-500 focus:ring-gold-500 accent-gold-500">
+                                    <span class="text-sm font-semibold">Berhalangan Hadir</span>
+                                </label>
+                            </div>
+                        </div>
+
+                        <!-- Form Submit Button with visual feedback -->
+                        <div class="pt-4">
+                            <button 
+                                type="submit" 
+                                class="w-full py-4 bg-gradient-to-r from-gold-500 to-gold-600 hover:from-gold-400 hover:to-gold-500 text-navy-950 font-sporty text-lg font-bold uppercase tracking-widest rounded-xl transition-all duration-300 transform hover:scale-[1.02] active:scale-95 glow-gold shadow-lg flex items-center justify-center gap-2"
+                            >
+                                <i class="fa-brands fa-whatsapp text-xl"></i>
+                                Kirim Konfirmasi Ke WhatsApp
+                            </button>
+                        </div>
+
+                    </form>
+                </div>
+            </div>
+        </section>
+
+        <!-- LOCATION & MAPS SECTION -->
+        <section id="lokasi" class="py-20 bg-navy-900 relative">
+            <div class="max-w-6xl mx-auto px-4 relative z-10">
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                    
+                    <!-- Left column info -->
+                    <div class="space-y-6">
+                        <span class="text-gold-400 font-sporty font-bold text-sm tracking-widest uppercase">STADION UTAMA EVENT</span>
+                        <h2 class="text-3xl md:text-5xl font-sporty font-extrabold tracking-tight">STADION WIRADADAHA</h2>
+                        <div class="w-20 h-1 bg-gold-500"></div>
+                        
+                        <p class="text-slate-300 leading-relaxed">
+                            Penyelenggaraan turnamen tahun ini bertempat di kompleks olahraga ikonik Kota Tasikmalaya, **Stadion Wiradadaha**, menjamin kenyamanan seluruh pemain dan wali atlet sepanjang turnamen.
+                        </p>
+
+                        <!-- Address details card -->
+                        <div class="bg-navy-950 border border-slate-800 p-6 rounded-2xl space-y-4">
+                            <div class="flex items-start gap-4">
+                                <div class="text-gold-400 mt-1"><i class="fa-solid fa-location-dot text-xl"></i></div>
+                                <div>
+                                    <h4 class="font-semibold text-white">Alamat Lengkap</h4>
+                                    <p class="text-slate-400 text-sm mt-1">Jalan Lingkar Dadaha, Nagarawangi, Kec. Cihideung, Kota Tasikmalaya, Jawa Barat 46124</p>
+                                </div>
+                            </div>
+                            <div class="flex items-start gap-4">
+                                <div class="text-gold-400 mt-1"><i class="fa-solid fa-circle-info text-xl"></i></div>
+                                <div>
+                                    <h4 class="font-semibold text-white">Panduan Parkir</h4>
+                                    <p class="text-slate-400 text-sm mt-1">Gunakan area parkir terpadu Kompleks Dadaha demi kelancaran dan keamanan berkendara bersama.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Right Column: Map Embed -->
+                    <div class="relative rounded-3xl overflow-hidden p-1 bg-gradient-to-b from-gold-500 to-navy-900 shadow-2xl h-[400px] lg:h-[450px]">
+                        <div class="absolute inset-0 bg-gold-400/5 pointer-events-none"></div>
+                        <!-- Embedded Dark-themed customized maps -->
+                        <iframe 
+                            title="Stadion Wiradadaha Tasikmalaya"
+                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3957.281148110292!2d108.22153207481116!3d-7.32230219268615!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e6157e174b1e60f%3A0x8673b50c0bb3614!2sStadion%20Wiradadaha!5e0!3m2!1sid!2sid!4v1716000000000!5m2!1sid!2sid" 
+                            class="w-full h-full border-0 rounded-[22px] grayscale contrast-125 opacity-90"
+                            allowfullscreen="" 
+                            loading="lazy" 
+                            referrerpolicy="no-referrer-when-downgrade"
+                        ></iframe>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- FOOTER CLOSING -->
+        <footer class="bg-navy-950 border-t border-slate-900 py-12 relative overflow-hidden">
+            <div class="absolute inset-0 football-tactics-bg opacity-10 pointer-events-none"></div>
+            <div class="max-w-6xl mx-auto px-4 relative z-10 text-center space-y-6">
+                
+                <h3 class="font-sporty font-extrabold text-2xl tracking-widest text-transparent bg-clip-text bg-gradient-to-r from-gold-400 via-white to-gold-400">
+                    TASIK RAYA CUP 4 2026
+                </h3>
+                
+                <p class="text-slate-400 text-sm max-w-md mx-auto leading-relaxed">
+                    Sinergi pembinaan sepak bola grassroots Jawa Barat. Mari bersama mengantar generasi emas meraih impian terbaik di lapangan hijau.
+                </p>
+
+                <!-- Social Media Badges -->
+                <div class="flex items-center justify-center gap-4">
+                    <a href="https://instagram.com" target="_blank" class="w-10 h-10 rounded-full bg-navy-900 hover:bg-gold-500 hover:text-navy-950 text-slate-400 flex items-center justify-center transition-all duration-300">
+                        <i class="fa-brands fa-instagram text-lg"></i>
+                    </a>
+                    <a href="https://youtube.com" target="_blank" class="w-10 h-10 rounded-full bg-navy-900 hover:bg-gold-500 hover:text-navy-950 text-slate-400 flex items-center justify-center transition-all duration-300">
+                        <i class="fa-brands fa-youtube text-lg"></i>
                     </a>
                 </div>
 
-                <div class="h-72 md:h-full min-h-[300px] rounded-3xl overflow-hidden shadow-2xl border-4 border-white relative group" data-aos="fade-left">
-                    <iframe 
-                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3957.251642823678!2d108.21989067510705!3d-7.325603772036737!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e61543329623707%3A0x8e831611c03e670e!2sPlaza%20Asia%20Tasikmalaya!5e0!3m2!1sen!2sid!4v1715694800000!5m2!1sen!2sid" 
-                        width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy">
-                    </iframe>
-                    <a href="https://maps.app.goo.gl/k5ceCAHDtYCu7iLA6" target="_blank" class="absolute inset-0 bg-sage-900/10 group-hover:bg-transparent transition-all duration-300"></a>
-                </div>
-            </div>
-        </div>
-    </section>
+                <div class="w-16 h-1 bg-slate-800 mx-auto"></div>
 
-    <!-- Jadwal Acara -->
-    <section class="py-24 bg-white overflow-hidden">
-        <div class="max-w-4xl mx-auto px-4">
-            <div class="text-center mb-16" data-aos="fade-up">
-                <span class="text-gold tracking-[0.3em] uppercase text-xs font-bold mb-4 block">Agenda Kegiatan</span>
-                <h2 class="font-display text-3xl text-sage-800">Jadwal Acara</h2>
-            </div>
-
-            <div class="space-y-8 max-w-2xl mx-auto mb-16">
-                <div class="timeline-item" data-aos="fade-up">
-                    <span class="text-xs font-bold text-sage-400 uppercase tracking-widest">19 - 20 April 2026</span>
-                    <p class="text-sage-700 font-medium mt-1">Masuk Bursa</p>
-                </div>
-                
-                <div class="timeline-item" data-aos="fade-up">
-                    <span class="text-xs font-bold text-sage-400 uppercase tracking-widest">20 - 21 April 2026</span>
-                    <p class="text-sage-700 font-medium mt-1">Penerimaan dan Pendaftaran Bonsai</p>
-                </div>
-
-                <div class="timeline-item" data-aos="fade-up">
-                    <span class="text-xs font-bold text-sage-400 uppercase tracking-widest">21 April 2026</span>
-                    <p class="text-sage-700 font-medium mt-1">Penataan dan Display Bonsai</p>
-                </div>
-
-                <div class="timeline-item" data-aos="fade-up">
-                    <span class="text-xs font-bold text-sage-400 uppercase tracking-widest">22, 23 & 24 April 2026</span>
-                    <p class="text-sage-700 font-medium mt-1 text-gold">Penjurian Utama</p>
-                </div>
-
-                <div class="timeline-item" data-aos="fade-up">
-                    <span class="text-xs font-bold text-sage-400 uppercase tracking-widest">24 April 2026</span>
-                    <p class="text-sage-700 font-medium mt-1">Penancapan Bendera</p>
-                </div>
-
-                <div class="timeline-item border-l-2 border-sage-600 bg-sage-50 p-6 rounded-r-xl" data-aos="fade-up">
-                    <span class="text-xs font-bold text-sage-600 uppercase tracking-widest">25 April 2026</span>
-                    <h4 class="text-sage-900 font-bold mt-1">Pembukaan Resmi Kontes & Pameran</h4>
-                    <p class="text-sage-600 text-sm mt-2 italic font-serif">Demo Bonsai bersama Junet Hani dan Yayat Hidayat</p>
-                </div>
-
-                <div class="timeline-item" data-aos="fade-up">
-                    <span class="text-xs font-bold text-sage-400 uppercase tracking-widest">25 - 28 April 2026</span>
-                    <p class="text-sage-800 font-bold mt-1 uppercase tracking-tighter">Pameran Nasional (TERBUKA UNTUK UMUM)</p>
-                </div>
-
-                <div class="timeline-item" data-aos="fade-up">
-                    <span class="text-xs font-bold text-sage-400 uppercase tracking-widest">28 April 2026</span>
-                    <p class="text-sage-700 font-medium mt-1">Pengambilan Pohon</p>
-                </div>
-            </div>
-
-            <div class="p-8 rounded-3xl bg-sage-50 border border-sage-200 text-center relative" data-aos="zoom-in">
-                <div class="absolute -top-4 left-1/2 -translate-x-1/2 px-4 py-1 bg-sage-600 text-white text-[10px] uppercase font-bold rounded-full tracking-widest">
-                    Pemberitahuan
-                </div>
-                <p class="text-sage-600 text-sm font-serif italic leading-relaxed max-w-xl mx-auto">
-                    "Segala hal yang terjadi akibat Force Majeure di luar tanggung jawab kami sebagai pihak penyelenggara."
+                <p class="text-xs text-slate-600">
+                    &copy; 2026 Festival Grassroots Tasik Raya Cup 4. All Rights Reserved.<br>
+                    Website developed beautifully with Navy & Gold theme.
                 </p>
+
             </div>
-        </div>
-    </section>
+        </footer>
 
-    <!-- Biaya Pendaftaran -->
-    <section class="py-24 bg-sage-100/50">
-        <div class="max-w-6xl mx-auto px-4">
-            <div class="text-center mb-16" data-aos="fade-up">
-                <h2 class="font-display text-3xl text-sage-800">Biaya Pendaftaran</h2>
+    </div>
+
+    <!-- CUSTOM MODAL SUCCESS POPUP -->
+    <div id="success-modal" class="fixed inset-0 z-50 flex items-center justify-center bg-navy-950/95 hidden px-4 transition-all duration-300">
+        <div class="bg-navy-900 border-2 border-gold-500 rounded-3xl p-8 max-w-md w-full text-center relative glow-gold animate__animated animate__zoomIn">
+            
+            <div class="w-20 h-20 bg-gold-500/10 border-2 border-gold-500 rounded-full flex items-center justify-center mx-auto mb-6 text-gold-400">
+                <i class="fa-brands fa-whatsapp text-4xl animate-bounce"></i>
             </div>
-
-            <div class="mb-12 max-w-lg mx-auto" data-aos="zoom-in">
-                <div class="bg-sage-800 text-white p-8 rounded-[2.5rem] shadow-2xl text-center border-b-4 border-gold">
-                    <p class="font-display text-2xl mb-2">STAN BURSA</p>
-                    <div class="text-3xl font-bold">Rp. 2.500.000</div>
-                    <p class="text-white/60 text-[10px] mt-4 uppercase tracking-widest italic">Space Terbatas</p>
-                </div>
-            </div>
-
-            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-                <div class="bg-white p-6 rounded-3xl shadow-sm price-card border border-sage-200" data-aos="fade-up">
-                    <h5 class="text-sage-800 font-bold border-b border-sage-100 pb-4 mb-4 uppercase tracking-widest text-xs">Kelas Prospek</h5>
-                    <ul class="space-y-3 text-sm">
-                        <li class="flex justify-between"><span>Small & Mame</span> <span class="font-bold">125k</span></li>
-                        <li class="flex justify-between"><span>Medium</span> <span class="font-bold">200k</span></li>
-                        <li class="flex justify-between"><span>Large</span> <span class="font-bold">300k</span></li>
-                        <li class="flex justify-between"><span>Extra Large</span> <span class="font-bold">350k</span></li>
-                    </ul>
-                </div>
-
-                <div class="bg-white p-6 rounded-3xl shadow-sm price-card border border-sage-200" data-aos="fade-up" data-aos-delay="100">
-                    <h5 class="text-sage-800 font-bold border-b border-sage-100 pb-4 mb-4 uppercase tracking-widest text-xs">Kelas Pratama</h5>
-                    <ul class="space-y-3 text-sm">
-                        <li class="flex justify-between"><span>Small & Mame</span> <span class="font-bold">250k</span></li>
-                        <li class="flex justify-between"><span>Medium</span> <span class="font-bold">300k</span></li>
-                        <li class="flex justify-between"><span>Large</span> <span class="font-bold">350k</span></li>
-                        <li class="flex justify-between"><span>Extra Large</span> <span class="font-bold">400k</span></li>
-                    </ul>
-                </div>
-
-                <div class="bg-white p-6 rounded-3xl shadow-sm price-card border border-sage-200" data-aos="fade-up" data-aos-delay="200">
-                    <h5 class="text-sage-800 font-bold border-b border-sage-100 pb-4 mb-4 uppercase tracking-widest text-xs">Kelas Madya</h5>
-                    <ul class="space-y-3 text-sm">
-                        <li class="flex justify-between"><span>Small & Mame</span> <span class="font-bold">300k</span></li>
-                        <li class="flex justify-between"><span>Medium</span> <span class="font-bold">400k</span></li>
-                        <li class="flex justify-between"><span>Large</span> <span class="font-bold">450k</span></li>
-                        <li class="flex justify-between"><span>Extra Large</span> <span class="font-bold">500k</span></li>
-                    </ul>
-                </div>
-
-                <div class="bg-white p-6 rounded-3xl shadow-sm price-card border border-sage-200" data-aos="fade-up" data-aos-delay="300">
-                    <h5 class="text-sage-800 font-bold border-b border-sage-100 pb-4 mb-4 uppercase tracking-widest text-xs">Kelas Utama</h5>
-                    <ul class="space-y-3 text-sm">
-                        <li class="flex justify-between"><span>Small & Mame</span> <span class="font-bold">400k</span></li>
-                        <li class="flex justify-between"><span>Medium</span> <span class="font-bold">500k</span></li>
-                        <li class="flex justify-between"><span>Large</span> <span class="font-bold">550k</span></li>
-                        <li class="flex justify-between"><span>Extra Large</span> <span class="font-bold">600k</span></li>
-                    </ul>
-                </div>
-            </div>
-
-            <div class="mt-20 grid md:grid-cols-2 gap-8 max-w-2xl mx-auto">
-                <a href="https://wa.me/6285724250573" target="_blank" class="bg-white p-6 rounded-2xl flex items-center gap-4 shadow-md border-l-4 border-sage-600 hover:shadow-lg transition-all group">
-                    <div class="w-12 h-12 bg-sage-50 rounded-full flex items-center justify-center text-sage-600 group-hover:bg-sage-600 group-hover:text-white transition-colors">
-                        <i class="fab fa-whatsapp text-xl"></i>
-                    </div>
-                    <div>
-                        <p class="text-[10px] uppercase font-bold text-sage-400 tracking-wider">Kontak Peserta</p>
-                        <h6 class="font-bold text-sage-800">Redi Kurnia</h6>
-                        <span class="text-sage-600 text-sm font-medium">0857 2425 0573</span>
-                    </div>
-                </a>
-
-                <a href="https://wa.me/6282119408505" target="_blank" class="bg-white p-6 rounded-2xl flex items-center gap-4 shadow-md border-l-4 border-sage-600 hover:shadow-lg transition-all group">
-                    <div class="w-12 h-12 bg-sage-50 rounded-full flex items-center justify-center text-sage-600 group-hover:bg-sage-600 group-hover:text-white transition-colors">
-                        <i class="fab fa-whatsapp text-xl"></i>
-                    </div>
-                    <div>
-                        <p class="text-[10px] uppercase font-bold text-sage-400 tracking-wider">Kontak Bursa</p>
-                        <h6 class="font-bold text-sage-800">Ace</h6>
-                        <span class="text-sage-600 text-sm font-medium">0821 1940 8505</span>
-                    </div>
-                </a>
-            </div>
-        </div>
-    </section>
-
-    <!-- Trophy & Penghargaan -->
-    <section class="py-24 bg-white relative overflow-hidden">
-        <div class="max-w-6xl mx-auto px-4 relative z-10">
-            <div class="text-center mb-16" data-aos="fade-up">
-                <i class="fas fa-trophy text-gold text-4xl mb-4 trophy-glow"></i>
-                <h2 class="font-display text-3xl text-sage-800 uppercase tracking-widest">Trophy Penghargaan</h2>
-                <div class="w-24 h-[1px] bg-gold mx-auto mt-4"></div>
-            </div>
-
-            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8 text-center">
-                <div class="bg-sage-50 p-8 rounded-[2rem] border border-sage-100 flex flex-col items-center group hover:bg-sage-800 hover:text-white transition-all duration-500 shadow-xl" data-aos="zoom-in">
-                    <div class="w-16 h-16 bg-white rounded-full flex items-center justify-center mb-6 group-hover:bg-gold transition-colors duration-500">
-                        <i class="fas fa-award text-gold text-2xl group-hover:text-white"></i>
-                    </div>
-                    <h4 class="font-display text-xl mb-2">BEST 10</h4>
-                    <p class="text-sage-500 text-xs uppercase tracking-[0.2em] group-hover:text-white/70">Setiap Kelas</p>
-                </div>
-
-                <div class="bg-sage-50 p-8 rounded-[2rem] border border-sage-100 flex flex-col items-center group hover:bg-sage-800 hover:text-white transition-all duration-500 shadow-xl" data-aos="zoom-in" data-aos-delay="100">
-                    <div class="w-16 h-16 bg-white rounded-full flex items-center justify-center mb-6 group-hover:bg-gold transition-colors duration-500">
-                        <i class="fas fa-crown text-gold text-2xl group-hover:text-white"></i>
-                    </div>
-                    <h4 class="font-display text-xl mb-2">BEST IN CLASS</h4>
-                    <p class="text-sage-500 text-xs uppercase tracking-[0.2em] group-hover:text-white/70">Setiap Kelas</p>
-                </div>
-
-                <div class="bg-sage-50 p-8 rounded-[2rem] border border-sage-100 group hover:bg-sage-800 transition-all duration-500 shadow-xl" data-aos="zoom-in" data-aos-delay="200">
-                    <div class="w-16 h-16 bg-white rounded-full flex items-center justify-center mb-6 mx-auto group-hover:bg-gold transition-colors">
-                        <i class="fas fa-leaf text-gold text-2xl group-hover:text-white"></i>
-                    </div>
-                    <h4 class="font-display text-xl mb-4 group-hover:text-white">BEST IN SPECIES</h4>
-                    <ul class="space-y-2 text-sm uppercase tracking-widest text-sage-600 group-hover:text-white/80 font-bold">
-                        <li>Anting Putri</li>
-                        <li>Ficus</li>
-                        <li>Sinensis</li>
-                    </ul>
-                </div>
-            </div>
-
-            <div class="mt-12 max-w-2xl mx-auto" data-aos="fade-up">
-                <div class="relative p-[2px] rounded-[3rem] bg-gradient-to-r from-gold via-sage-400 to-gold overflow-hidden shadow-2xl">
-                    <div class="bg-sage-900 text-white p-10 rounded-[2.9rem] text-center">
-                        <i class="fas fa-star text-gold text-3xl mb-4 animate-pulse"></i>
-                        <h3 class="font-display text-3xl md:text-4xl tracking-[0.2em] text-gold mb-2 uppercase">Best In Show</h3>
-                        <p class="text-white/50 text-xs uppercase tracking-[0.5em]">The Ultimate Champion</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Door Prize -->
-    <section class="py-24 bg-sage-900 text-white relative overflow-hidden">
-        <div class="max-w-6xl mx-auto px-4 relative z-10">
-            <div class="text-center mb-16" data-aos="fade-up">
-                <span class="text-gold tracking-[0.4em] uppercase text-xs font-bold mb-4 block">Special Reward</span>
-                <h2 class="font-display text-3xl text-white tracking-widest">DOOR PRIZE</h2>
-                <div class="w-24 h-[1px] bg-gold mx-auto mt-4 opacity-50"></div>
-            </div>
-
-            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-                <div class="bg-white/5 backdrop-blur-sm p-8 rounded-[2.5rem] border border-white/10 text-center flex flex-col items-center group hover:bg-gold transition-all duration-500" data-aos="fade-up">
-                    <div class="w-20 h-20 bg-gold/20 rounded-2xl flex items-center justify-center mb-6 group-hover:bg-white/20 transition-colors">
-                        <i class="fas fa-motorcycle text-gold text-4xl group-hover:text-white"></i>
-                    </div>
-                    <h4 class="font-display text-2xl mb-2">SEPEDA MOTOR</h4>
-                    <div class="px-4 py-1 bg-white/10 rounded-full text-[10px] uppercase tracking-widest font-bold group-hover:bg-black/20">Khusus Peserta</div>
-                </div>
-
-                <div class="bg-white/5 backdrop-blur-sm p-8 rounded-[2.5rem] border border-white/10 text-center flex flex-col items-center group hover:bg-gold transition-all duration-500" data-aos="fade-up" data-aos-delay="100">
-                    <div class="w-20 h-20 bg-gold/20 rounded-2xl flex items-center justify-center mb-6 group-hover:bg-white/20 transition-colors">
-                        <i class="fas fa-bicycle text-gold text-4xl group-hover:text-white"></i>
-                    </div>
-                    <h4 class="font-display text-2xl mb-2">SEPEDA LISTRIK</h4>
-                    <div class="px-4 py-1 bg-white/10 rounded-full text-[10px] uppercase tracking-widest font-bold group-hover:bg-black/20">Khusus Bursa</div>
-                </div>
-
-                <div class="bg-white/5 backdrop-blur-sm p-8 rounded-[2.5rem] border border-white/10 text-center flex flex-col items-center group hover:bg-gold transition-all duration-500" data-aos="fade-up" data-aos-delay="200">
-                    <div class="w-20 h-20 bg-gold/20 rounded-2xl flex items-center justify-center mb-6 group-hover:bg-white/20 transition-colors">
-                        <i class="fas fa-hippo text-gold text-4xl group-hover:text-white"></i>
-                    </div>
-                    <h4 class="font-display text-2xl mb-2 uppercase">Kambing</h4>
-                    <p class="text-white/60 text-[10px] leading-relaxed group-hover:text-white/90 italic">
-                        Untuk peserta dengan bonsai terbanyak (Atas nama perorangan)
-                    </p>
-                </div>
-            </div>
-            <div class="mt-12 text-center" data-aos="fade-up">
-                <p class="text-gold italic font-serif text-lg tracking-wider">"Dan berbagai hadiah menarik lainnya..."</p>
-            </div>
-        </div>
-        <i class="fas fa-gift absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-white/5 text-[40rem] pointer-events-none"></i>
-    </section>
-
-    <!-- Pendaftaran Section -->
-    <section id="registration" class="py-24 bg-sage-50 border-t border-sage-100">
-        <div class="max-w-xl mx-auto px-4">
-            <div class="bg-white p-8 md:p-12 rounded-[2rem] border border-sage-200 shadow-xl shadow-sage-900/5" data-aos="fade-up">
-                <div class="text-center mb-10">
-                    <h2 class="font-display text-2xl text-sage-800 mb-2 tracking-widest uppercase">Pendaftaran</h2>
-                    <div class="w-16 h-[1px] bg-gold mx-auto opacity-50"></div>
-                </div>
-
-                <form id="registration-form" class="space-y-5">
-                    <!-- Nama & Cabang -->
-                    <div class="grid md:grid-cols-2 gap-5">
-                        <div class="space-y-2">
-                            <label class="text-[10px] font-black text-sage-700 uppercase tracking-[0.2em] ml-1">Nama Lengkap</label>
-                            <input type="text" id="reg-name" required class="w-full px-5 py-3 bg-sage-50 border border-sage-100 rounded-xl focus:ring-2 focus:ring-sage-400 outline-none transition-all placeholder:text-sage-300" placeholder="Nama Anda">
-                        </div>
-                        <div class="space-y-2">
-                            <label class="text-[10px] font-black text-sage-700 uppercase tracking-[0.2em] ml-1">Cabang PPBI</label>
-                            <input type="text" id="reg-branch" required class="w-full px-5 py-3 bg-sage-50 border border-sage-100 rounded-xl focus:ring-2 focus:ring-sage-400 outline-none transition-all placeholder:text-sage-300" placeholder="Cabang PPBI">
-                        </div>
-                    </div>
-                    
-                    <div class="grid md:grid-cols-2 gap-5">
-                        <div class="space-y-2">
-                            <label class="text-[10px] font-black text-sage-700 uppercase tracking-[0.2em] ml-1">WhatsApp</label>
-                            <input type="tel" id="reg-wa" required class="w-full px-5 py-3 bg-sage-50 border border-sage-100 rounded-xl focus:ring-2 focus:ring-sage-400 outline-none transition-all placeholder:text-sage-300" placeholder="08xxx">
-                        </div>
-                        <div class="space-y-2">
-                            <label class="text-[10px] font-black text-sage-700 uppercase tracking-[0.2em] ml-1">Kategori</label>
-                            <select id="reg-category" required class="w-full px-5 py-3 bg-sage-50 border border-sage-100 rounded-xl focus:ring-2 focus:ring-sage-400 outline-none transition-all appearance-none cursor-pointer">
-                                <option value="peserta">Peserta</option>
-                                <option value="bursa">Bursa</option>
-                            </select>
-                        </div>
-                    </div>
-
-                    <!-- Detail Pohon (Conditional for Peserta) -->
-                    <div id="bonsai-details" class="space-y-5 border-t border-sage-100 pt-5">
-                        <div class="space-y-2">
-                            <label class="text-[10px] font-black text-sage-700 uppercase tracking-[0.2em] ml-1">Nama Pohon / Jenis</label>
-                            <input type="text" id="reg-tree-name" class="w-full px-5 py-3 bg-sage-50 border border-sage-100 rounded-xl focus:ring-2 focus:ring-sage-400 outline-none transition-all placeholder:text-sage-300" placeholder="Contoh: Anting Putri">
-                        </div>
-
-                        <div class="grid md:grid-cols-2 gap-5">
-                            <div class="space-y-2">
-                                <label class="text-[10px] font-black text-sage-700 uppercase tracking-[0.2em] ml-1">Kelas</label>
-                                <select id="reg-class" class="w-full px-5 py-3 bg-sage-50 border border-sage-100 rounded-xl focus:ring-2 focus:ring-sage-400 outline-none transition-all cursor-pointer">
-                                    <option value="Prospek">Prospek</option>
-                                    <option value="Pratama">Pratama</option>
-                                    <option value="Madya">Madya</option>
-                                    <option value="Utama">Utama</option>
-                                </select>
-                            </div>
-                            <div class="space-y-2">
-                                <label class="text-[10px] font-black text-sage-700 uppercase tracking-[0.2em] ml-1">Ukuran</label>
-                                <select id="reg-size" class="w-full px-5 py-3 bg-sage-50 border border-sage-100 rounded-xl focus:ring-2 focus:ring-sage-400 outline-none transition-all cursor-pointer">
-                                    <option value="Small / Mame">Small / Mame</option>
-                                    <option value="Medium">Medium</option>
-                                    <option value="Large">Large</option>
-                                    <option value="Extra Large">Extra Large</option>
-                                </select>
-                            </div>
-                        </div>
-
-                        <div class="space-y-2">
-                            <label class="text-[10px] font-black text-sage-700 uppercase tracking-[0.2em] ml-1">Jumlah Pohon</label>
-                            <input type="number" id="reg-count" min="1" value="1" class="w-full px-5 py-3 bg-sage-50 border border-sage-100 rounded-xl focus:ring-2 focus:ring-sage-400 outline-none transition-all">
-                        </div>
-
-                        <!-- Upload Foto -->
-                        <div class="space-y-2">
-                            <label class="text-[10px] font-black text-sage-700 uppercase tracking-[0.2em] ml-1">Foto Pohon (Opsional)</label>
-                            <div class="relative w-full h-32 border-2 border-dashed border-sage-200 rounded-2xl flex flex-col items-center justify-center hover:border-sage-400 transition-colors bg-sage-50/50">
-                                <i class="fas fa-camera text-sage-300 text-2xl mb-2"></i>
-                                <span class="text-[10px] text-sage-400 uppercase font-bold tracking-widest">Pilih Foto</span>
-                                <input type="file" id="reg-photo" accept="image/*" class="absolute inset-0 opacity-0 cursor-pointer">
-                                <div id="file-name-display" class="absolute bottom-2 text-[9px] text-sage-600 font-medium"></div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <button type="submit" class="w-full py-4 bg-sage-800 hover:bg-sage-900 text-white rounded-xl font-bold uppercase tracking-[0.3em] text-[10px] transition-all duration-300 shadow-xl shadow-sage-900/10 active:scale-95">
-                        Kirim Pendaftaran
-                    </button>
-                </form>
-                
-                <div id="reg-success" class="hidden text-center py-8">
-                    <div class="w-16 h-16 bg-sage-600 text-white rounded-full flex items-center justify-center mx-auto mb-4">
-                        <i class="fas fa-check text-2xl"></i>
-                    </div>
-                    <p class="text-sage-800 font-bold uppercase tracking-widest text-sm">Pendaftaran Berhasil</p>
-                    <p class="text-sage-500 text-xs mt-2 italic">Menghubungkan ke WhatsApp...</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Footer -->
-    <footer class="py-16 bg-sage-900 text-sage-400 text-center border-t border-white/5">
-        <div class="max-w-4xl mx-auto px-4">
-            <h3 class="font-display text-xl text-white mb-4 tracking-[0.5em]">CHANGE OF SEASONS</h3>
-            <div class="w-12 h-[1px] bg-sage-700 mx-auto mb-8"></div>
-            <p class="text-[9px] uppercase tracking-[0.4em] opacity-50">
-                &copy; 2026 PPBI Cabang Tasikmalaya <br>
-                Kontes & Pameran Bonsai Nasional
+            
+            <h3 class="font-sporty text-2xl font-extrabold text-white mb-2">SIAP KIRIM WHATSAPP</h3>
+            <p class="text-slate-400 text-sm mb-6 leading-relaxed">
+                Detail konfirmasi pendaftaran tim <strong class="text-gold-400" id="submitted-team-display">nama_tim</strong> siap dikirimkan. Silakan klik tombol di bawah untuk membuka obrolan WhatsApp resmi panitia.
             </p>
+
+            <button id="modal-wa-btn" class="w-full py-3 bg-gradient-to-r from-gold-500 to-gold-600 hover:from-gold-400 hover:to-gold-500 text-navy-950 font-sporty font-bold text-sm uppercase tracking-wider rounded-xl transition-all duration-300 flex items-center justify-center gap-2">
+                <i class="fa-brands fa-whatsapp text-lg"></i> Buka Chat WhatsApp
+            </button>
         </div>
-    </footer>
+    </div>
 
+    <!-- NOTIFICATION TOAST FOR ACCOUNT COPY -->
+    <div id="copy-toast" class="fixed bottom-6 left-6 z-50 bg-gold-500 text-navy-950 px-4 py-3 rounded-xl font-bold font-sporty text-xs uppercase tracking-wider shadow-2xl transform translate-y-20 opacity-0 transition-all duration-300">
+        <i class="fa-solid fa-circle-check mr-2"></i> Nomor rekening berhasil disalin!
+    </div>
+
+    <!-- INTERACTIVE JAVASCRIPT FUNCTIONS -->
     <script>
-        AOS.init({ duration: 1000, once: true, easing: 'ease-out-back' });
+        // Track music playing status
+        const bgMusic = document.getElementById('bg-music');
+        const musicIcon = document.getElementById('music-icon');
+        const bodyContainer = document.getElementById('body-container');
+        const splashScreen = document.getElementById('splash-screen');
+        const mainContent = document.getElementById('main-content');
+        const floatingMusicBtn = document.getElementById('floating-music-btn');
 
-        // Countdown Logic
-        const targetDate = new Date("April 19, 2026 00:00:00").getTime();
-        function updateCountdown() {
+        // Extract customized query params if available to customize invitation greetings
+        window.addEventListener('DOMContentLoaded', () => {
+            const urlParams = new URLSearchParams(window.location.search);
+            const guestName = urlParams.get('to');
+            if (guestName) {
+                document.getElementById('recipient-name').innerText = decodeURIComponent(guestName);
+            }
+        });
+
+        // 1. Splash Screen Trigger - Buka Undangan
+        function openInvitation() {
+            // Un-hide the content immediately to calculate layouts but transition nicely
+            mainContent.classList.remove('hidden');
+            floatingMusicBtn.classList.remove('hidden');
+            
+            // Allow page body scrolling
+            bodyContainer.classList.remove('overflow-hidden');
+
+            // Play background music gracefully with browser security approval
+            playBackgroundMusic();
+
+            // Fade out the cover page
+            splashScreen.classList.add('opacity-0');
+            setTimeout(() => {
+                splashScreen.classList.add('hidden');
+                mainContent.classList.add('opacity-100');
+                mainContent.classList.remove('opacity-0');
+            }, 1000);
+        }
+
+        // 2. Play Background Music & Manage Spin Animation
+        function playBackgroundMusic() {
+            bgMusic.play().then(() => {
+                musicIcon.classList.add('animate-spin-slow');
+            }).catch(error => {
+                console.log("Music autoplay prevented by browser permissions. Waiting for manual toggle click.", error);
+            });
+        }
+
+        // 3. Audio Manual Control Toggle Button
+        function toggleMusic() {
+            if (bgMusic.paused) {
+                bgMusic.play();
+                musicIcon.classList.add('animate-spin-slow');
+                musicIcon.classList.remove('text-slate-500');
+                musicIcon.classList.add('text-gold-400');
+            } else {
+                bgMusic.pause();
+                musicIcon.classList.remove('animate-spin-slow');
+                musicIcon.classList.remove('text-gold-400');
+                musicIcon.classList.add('text-slate-500');
+            }
+        }
+
+        // 4. Dynamic Live Countdown Timer (Target: 18 Juli 2026, 08:00 WIB)
+        const targetDate = new Date('July 18, 2026 08:00:00 GMT+0700').getTime();
+
+        const countdownInterval = setInterval(() => {
             const now = new Date().getTime();
-            const distance = targetDate - now;
-            if (distance < 0) {
-                document.getElementById("countdown").innerHTML = "<h2 class='font-display text-2xl text-sage-800'>Acara Sedang Berlangsung</h2>";
+            const difference = targetDate - now;
+
+            // If target date passed, render default zero values or stop timer
+            if (difference < 0) {
+                clearInterval(countdownInterval);
+                document.getElementById('days').innerText = '00';
+                document.getElementById('hours').innerText = '00';
+                document.getElementById('minutes').innerText = '00';
+                document.getElementById('seconds').innerText = '00';
                 return;
             }
-            const days = Math.floor(distance / (1000 * 60 * 60 * 24));
-            const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-            const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-            const seconds = Math.floor((distance % (1000 * 60)) / 1000);
-            document.getElementById("days").innerText = days.toString().padStart(2, '0');
-            document.getElementById("hours").innerText = hours.toString().padStart(2, '0');
-            document.getElementById("minutes").innerText = minutes.toString().padStart(2, '0');
-            document.getElementById("seconds").innerText = seconds.toString().padStart(2, '0');
-        }
-        setInterval(updateCountdown, 1000);
-        updateCountdown();
 
-        // Music Logic
-        const audio = document.getElementById('bg-music');
-        const musicIcon = document.getElementById('music-icon');
-        let isPlaying = false;
-        function toggleMusic() {
-            if (isPlaying) { audio.pause(); musicIcon.classList.replace('fa-pause', 'fa-music'); }
-            else { audio.play(); musicIcon.classList.replace('fa-music', 'fa-pause'); }
-            isPlaying = !isPlaying;
-        }
+            // Calculations for days, hours, minutes and seconds
+            const days = Math.floor(difference / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((difference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((difference % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((difference % (1000 * 60)) / 1000);
 
-        // Form Logic
-        const categorySelect = document.getElementById('reg-category');
-        const bonsaiDetails = document.getElementById('bonsai-details');
-        const photoInput = document.getElementById('reg-photo');
-        const fileNameDisplay = document.getElementById('file-name-display');
+            // Adding leading zero helper
+            document.getElementById('days').innerText = days < 10 ? '0' + days : days;
+            document.getElementById('hours').innerText = hours < 10 ? '0' + hours : hours;
+            document.getElementById('minutes').innerText = minutes < 10 ? '0' + minutes : minutes;
+            document.getElementById('seconds').innerText = seconds < 10 ? '0' + seconds : seconds;
+        }, 1000);
 
-        categorySelect.addEventListener('change', function() {
-            if (this.value === 'peserta') { bonsaiDetails.classList.remove('hidden'); } 
-            else { bonsaiDetails.classList.add('hidden'); }
-        });
-
-        photoInput.addEventListener('change', function() {
-            if(this.files && this.files.length > 0) {
-                fileNameDisplay.innerText = "Terpilih: " + this.files[0].name;
+        // 5. Utility function to Copy text to Clipboard smoothly with system fallback
+        function copyToClipboard(text, btnElement) {
+            // Save original inner html
+            const originalContent = btnElement.innerHTML;
+            
+            // Modern copy fallback
+            const textArea = document.createElement("textarea");
+            textArea.value = text;
+            textArea.style.top = "0";
+            textArea.style.left = "0";
+            textArea.style.position = "fixed";
+            document.body.appendChild(textArea);
+            textArea.focus();
+            textArea.select();
+            
+            try {
+                const successful = document.execCommand('copy');
+                if(successful) {
+                    btnElement.innerHTML = `<i class="fa-solid fa-check text-green-400"></i> Disalin!`;
+                    showToastNotification();
+                } else {
+                    btnElement.innerText = 'Gagal';
+                }
+            } catch (err) {
+                console.error('Gagal menyalin text', err);
             }
-        });
+            
+            document.body.removeChild(textArea);
+            
+            setTimeout(() => {
+                btnElement.innerHTML = originalContent;
+            }, 2500);
+        }
 
-        const regForm = document.getElementById('registration-form');
-        const regSuccess = document.getElementById('reg-success');
+        // Show Temporary Success Toast Message
+        function showToastNotification() {
+            const toast = document.getElementById('copy-toast');
+            toast.classList.remove('translate-y-20', 'opacity-0');
+            toast.classList.add('translate-y-0', 'opacity-100');
+            
+            setTimeout(() => {
+                toast.classList.add('translate-y-20', 'opacity-0');
+                toast.classList.remove('translate-y-0', 'opacity-100');
+            }, 2500);
+        }
 
-        regForm.addEventListener('submit', (e) => {
-            e.preventDefault();
+        // 6. Submit Event Handler for RSVP Registration Form to Official WA 082119801358
+        function handleRegistrationSubmit(event) {
+            event.preventDefault(); // Prevent standard page reload
+
+            // Gather values
+            const teamName = document.getElementById('team-name').value;
+            const categoryAge = document.getElementById('category-age').value;
+            const managerName = document.getElementById('manager-name').value;
+            const phoneNumber = document.getElementById('phone-number').value;
             
-            const name = document.getElementById('reg-name').value;
-            const branch = document.getElementById('reg-branch').value;
-            const wa = document.getElementById('reg-wa').value;
-            const cat = document.getElementById('reg-category').value;
-            
-            let message = `Halo Admin, saya ingin mendaftar Pameran Bonsai Nasional 2026:\n\n` +
-                          `👤 Nama: ${name}\n` +
-                          `🏢 Cabang: ${branch}\n` +
-                          `📱 WhatsApp: ${wa}\n` +
-                          `🏷️ Kategori: ${cat.toUpperCase()}`;
-            
-            if(cat === 'peserta') {
-                const treeName = document.getElementById('reg-tree-name').value;
-                const treeClass = document.getElementById('reg-class').value;
-                const treeSize = document.getElementById('reg-size').value;
-                const count = document.getElementById('reg-count').value;
-                
-                message += `\n🌳 Nama Pohon: ${treeName || '-'}\n` +
-                           `🏆 Kelas: ${treeClass}\n` +
-                           `📏 Ukuran: ${treeSize}\n` +
-                           `🔢 Jumlah: ${count}`;
-                
-                if(photoInput.files.length > 0) {
-                    message += `\n📸 *Keterangan: Foto pohon akan dilampirkan secara manual di chat ini.*`;
+            // Get selected radio value
+            const rsvpRadios = document.getElementsByName('rsvp_status');
+            let rsvpStatus = "Siap Hadir";
+            for (let i = 0; i < rsvpRadios.length; i++) {
+                if (rsvpRadios[i].checked) {
+                    rsvpStatus = rsvpRadios[i].value;
+                    break;
                 }
             }
 
-            const targetNumber = (cat === 'peserta') ? "6285724250573" : "6282119408505";
+            // Construct neat, formatted WhatsApp Message payload
+            const waTargetNumber = "6282119801358"; // Replaced with official requested number in international format
+            const waMessage = `Halo Panitia Tasik Raya Cup 4 2026,\n\nSaya ingin mengonfirmasi pendaftaran tim dengan detail berikut:\n\n` +
+                              `⚽ *Nama SSB / Klub / Sekolah:* ${teamName}\n` +
+                              `👶 *Kategori Usia (KU):* ${categoryAge}\n` +
+                              `📋 *Manajer / Ofisial:* ${managerName}\n` +
+                              `📞 *WhatsApp Kontak:* ${phoneNumber}\n` +
+                              `📌 *Status Kehadiran:* *${rsvpStatus}*\n\n` +
+                              `Mohon bantuannya untuk memproses pendaftaran kami lebih lanjut. Terima kasih banyak!`;
             
-            regForm.classList.add('hidden');
-            regSuccess.classList.remove('hidden');
+            const waFullURL = `https://api.whatsapp.com/send?phone=${waTargetNumber}&text=${encodeURIComponent(waMessage)}`;
 
-            setTimeout(() => {
-                window.open(`https://wa.me/${targetNumber}?text=${encodeURIComponent(message)}`, '_blank');
-            }, 1500);
-        });
+            // Set input team name dynamically on the success modal message
+            document.getElementById('submitted-team-display').innerText = teamName;
+
+            // Show custom Success Modal
+            const successModal = document.getElementById('success-modal');
+            successModal.classList.remove('hidden');
+
+            // Set dynamic CTA button redirect inside Modal
+            document.getElementById('modal-wa-btn').onclick = function() {
+                window.open(waFullURL, '_blank');
+                successModal.classList.add('hidden');
+                document.getElementById('rsvp-form').reset();
+            };
+        }
     </script>
 </body>
 </html>
